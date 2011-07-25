@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+
+{% block submain %}
+
+<div id="navcontainer">
+<ul id="navlist">
+
+
+
+		<li><a href="/profile_home/">Account Info</a></li>
+		<li><a href="/trans_history/">Transaction Info</a></li>
+		<li><a href="/trans_history/">Bank Info</a></li>
+		
+
+
+
+	</ul>
+
+</div>
+{% endblock %}
+{% block main %}
+<br>
+{{ object.id }}: {{ object.sender }},{{ object.receiver }}, {{ object.amount }}, {{ object.created }}<br>
+
+{% endblock %}

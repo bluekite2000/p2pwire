@@ -1,7 +1,6 @@
 {% extends "main/profile_base.html" %}
 
 {% block main %}
-
 {% block trans %}
 <div id="navcontainer">
 
@@ -16,9 +15,10 @@
 
 	</ul>
 
-</div>
-
+</div>	
 {% endblock %}
+
+
 Recent transactions<br>
 <ol>
 {% for object in  object_list.all %}
