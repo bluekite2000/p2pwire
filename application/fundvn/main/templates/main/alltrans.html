@@ -26,7 +26,7 @@ Recent transactions<br>
 
 {% ifequal item.status "Y" %}
 
-<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}}  transferred to {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}} an amount of  {{ item.amount }}. </li>
+<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}}  wants to transfer {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}} an amount of  {{ item.amount }}. {{ item.sender.accountfirstname}} accepts a swap. </li>
 
 {% endifequal %}
 
