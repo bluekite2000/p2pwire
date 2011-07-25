@@ -25,7 +25,7 @@ urlpatterns = patterns('main.views',
 	#TRANSACTION CREATE,EDIT AND ACCEPT
 	url(r'^transfer/$',transfer,name='transfer'),
 	url(r'^(?P<username>\w+)/trans/create/$', TransactionCreateView.as_view(model=Transaction)),
-	url(r'^(?P<username>\w+)/trans/create/success/$',transaction_created,name='transaction_created')
+	url(r'^(?P<username>\w+)/trans/create/success/$',transaction_created,name='transaction_created'),
     url(r'^trans/edit/(\d+)/$', trans_edit, name="trans_edit"),
 	url(r'^(?P<username>\w+)/trans/edit/(?P<pk>\d+)/$', PostTransactionUpdateView.as_view(model=Transaction)),
 	url(r'^(?P<username>\w+)/trans/edit/(\d+)/success/$',trans_edited,name='trans_edited'),
