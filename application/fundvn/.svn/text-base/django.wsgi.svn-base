@@ -1,0 +1,12 @@
+import os
+import sys
+
+sys.path.append('/srv/www/afortunecookieaday.com/application/cookie')
+sys.path.append('/srv/www/afortunecookieaday.com/application/')
+
+os.environ['PYTHON_EGG_CACHE'] = '/srv/www/afortunecokieaday.com/.python-egg'
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'cookie.settings'
+
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()

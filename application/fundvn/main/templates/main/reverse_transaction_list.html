@@ -1,0 +1,43 @@
+{% extends "main/profile_detail.html" %}
+{% block subsubmain %}
+<div id="navcontainer">
+
+<ul id="navlist">
+
+
+
+		<li><a href="/trans_history/">Recent trans</a></li>
+		<li><a href="/reverse_trans_history/">Recent reverse trans </a></li>
+		
+
+
+	</ul>
+
+</div>
+
+{% endblock %}
+{% block main %}
+
+{% load extra	%}
+
+Recent transactions<br>
+<ol>
+{% for object in  object_list.all %}
+{% ifequal object.status "N" %}
+
+<li> On {{object.created}} you  want to transfer to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}} an amount of  {{ object.amount }}, in response to {{object.org_tran}}  </li>
+
+{% endifequal %}
+{% ifequal object.status "Y" %}
+
+<li> Your request to transfer to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}} an amount of  {{ object.amount }}, in response to {{object.org_tran}} has been accepted.</li>
+
+{% endifequal %}
+
+{% endfor %}
+</ol>
+
+
+<br>
+
+{% endblock %}

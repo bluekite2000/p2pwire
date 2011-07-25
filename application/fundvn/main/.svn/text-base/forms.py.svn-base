@@ -1,0 +1,11 @@
+from django import forms
+class ContactForm(forms.Form):
+	sender_name = forms.CharField(max_length=100)
+	sender_phone = forms.CharField(max_length=100)
+	sender_bankacc = forms.CharField(max_length=100)
+	
+	receiver_name = forms.CharField(max_length=100)
+	receiver_phone = forms.CharField(max_length=100)
+	receiver_bankacc = forms.CharField(max_length=100)
+	
+	transfer_amount = forms.IntegerField(min_value=1, max_value=100000)

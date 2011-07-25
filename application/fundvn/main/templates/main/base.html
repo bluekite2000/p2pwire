@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+{%block head %}
+	<head>
+
+		<title>p2pwire.com{%block pagetitle %}{% endblock %}</title>
+	  <link rel="stylesheet" href="/media/main.css" />
+
+	</head>
+
+{% endblock %}
+
+{%block script %}
+
+{% endblock %}
+
+	<body>
+
+		<div id="navcontainer">
+		<ul id="navlist">
+
+			<li>p2pwire.com.</li>
+
+				<li><a href="/main/">Home</a></li>
+
+
+
+				<li><a href="/about/">About</a></li>
+
+				<li><a href="/blog/">Blog</a></li>
+
+				<li><a href="/press/">Press</a></li>
+				<li><a href="/account/logout/">Sign out</a></li>
+				
+
+
+
+			</ul>
+
+		</div>
+			<div id="subheader">
+			<ul id="navlist">
+
+<li><a href="/main/">Recent transactions</a></li>
+
+				<li><a href="/transfer/">Make transfer</a></li>
+
+
+					<li><a href="/recipient_add/">Add recipient</a></li>
+
+					<li><a href="/recipient_manage/">Manage recipient</a></li>
+
+					<li><a href="/profile_home/">Manage account</a></li>
+
+
+
+
+				</ul>
+
+			</div>
+			
+		<div id="content">
+
+			<div id="primary">
+				{% block submain %}{% endblock %}
+				{% block subsubmain %}{% endblock %}
+				{% block main %}{% endblock %}
+
+
+
+
+			</div>
+
+		
+
+
+
+		</div>
+
+	</body>
+	<div id="ft">
+					<div id="navcontainer">
+					<ul id="navlist">
+
+
+
+							<li><a href="/main/">Home</a></li>
+
+
+
+							<li><a href="/about/">About</a></li>
+
+							<li><a href="/blog/">Blog</a></li>
+
+							<li><a href="/press/">Press</a></li>
+							<li><a href="/logout/">Sign out</a></li>
+
+
+
+
+						</ul>
+
+					</div>
+				
+			</div><!--// footer -->
+
+</html>

@@ -1,0 +1,40 @@
+{% extends "main/base.html" %}
+
+{% block main %}
+
+<form method="get"  action="">
+	{{search_form}}
+	<input type="submit" value="Search" />
+</form>
+<br>
+Recent transactions<br>
+<!-- ><ol>{{ object_list.all|safeseq|unordered_list }}</ol> -->
+
+
+{% regroup object_list.all by created as  created_list %}
+
+<ul>
+{% for created in created_list %}
+    <li>{{ created.grouper }}
+    <ul>
+        {% for item in created.list %}
+{% ifequal item.status "N" %}
+
+<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}} wants to transfer to {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}} an amount of  {{ item.amount }}. <a href="{{ item.get_swap_absolute_url }}">Swap with {{ item.sender.accountfirstname}}</a></li>
+
+{% endifequal %} 	
+
+{% ifequal item.status "Y" %}
+
+<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}}  transferred to {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}} an amount of  {{ item.amount }}. </li>
+
+{% endifequal %}
+
+        {% endfor %}
+    </ul>
+    </li>
+{% endfor %}
+</ul>
+<br>
+
+{% endblock %}

@@ -1,0 +1,492 @@
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230] mod_wsgi (pid=2967): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/django.wsgi'.
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]     self.load_middleware()
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]     self._setup()
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]     self._wrapped = Settings(settings_module)
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 01:39:09 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 02:02:37 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230] mod_wsgi (pid=3981): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/django.wsgi'.
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     self.load_middleware()
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     self._setup()
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     self._wrapped = Settings(settings_module)
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230] mod_wsgi (pid=3982): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/django.wsgi'.
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     self.load_middleware()
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     self._setup()
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     self._wrapped = Settings(settings_module)
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 02:04:42 2011] [error] [client 99.27.43.230] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230] mod_wsgi (pid=4054): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/django.wsgi'.
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     self.load_middleware()
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     self._setup()
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     self._wrapped = Settings(settings_module)
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230] mod_wsgi (pid=4055): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/django.wsgi'.
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     self.load_middleware()
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     self._setup()
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     self._wrapped = Settings(settings_module)
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 02:07:01 2011] [error] [client 99.27.43.230] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230] mod_wsgi (pid=4223): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/django.wsgi'.
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]     self.load_middleware()
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]     self._setup()
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]     self._wrapped = Settings(settings_module)
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 02:10:40 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230] mod_wsgi (pid=4224): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/django.wsgi'.
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]     self.load_middleware()
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]     self._setup()
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]     self._wrapped = Settings(settings_module)
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 02:10:41 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230] mod_wsgi (pid=4404): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/django.wsgi'.
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]     self.load_middleware()
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]     self._setup()
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]     self._wrapped = Settings(settings_module)
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 02:13:55 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230] mod_wsgi (pid=4405): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/django.wsgi'.
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]     self.load_middleware()
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]     self._setup()
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]     self._wrapped = Settings(settings_module)
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 02:13:56 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 02:52:28 2011] [error] [client 66.249.71.117] File does not exist: /srv/www/glassesonme.com/public_html/robots.txt
+[Wed May 04 03:07:54 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 03:10:53 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121] mod_wsgi (pid=4733): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/mysite/django.wsgi'.
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121] Traceback (most recent call last):
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 230, in __call__
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]     self.load_middleware()
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 33, in load_middleware
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/utils/functional.py", line 269, in __getattr__
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]     self._setup()
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 40, in _setup
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]     self._wrapped = Settings(settings_module)
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/conf/__init__.py", line 75, in __init__
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121]     raise ImportError, "Could not import settings '%s' (Is it on sys.path? Does it have syntax errors?): %s" % (self.SETTINGS_MODULE, e)
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121] ImportError: Could not import settings 'settings' (Is it on sys.path? Does it have syntax errors?): No module named settings
+[Wed May 04 03:12:02 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 03:14:19 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:18:43 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:20:26 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:21:52 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121] mod_wsgi (pid=5046): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/glasses/django.wsgi'.
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121] Traceback (most recent call last):
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 241, in __call__
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]     response = self.get_response(request)
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 73, in get_response
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]     response = middleware_method(request)
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 57, in process_request
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]     _is_valid_path("%s/" % request.path_info)):
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 142, in _is_valid_path
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]     urlresolvers.resolve(path)
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 303, in resolve
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]     return get_resolver(urlconf).resolve(path)
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 125, in resolve
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]     return self.callback, args, kwargs
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 134, in _get_callback
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121]     raise ViewDoesNotExist, "Could not import %s. Error was: %s" % (mod_name, str(e))
+[Tue May 03 22:22:01 2011] [error] [client 67.160.200.121] ViewDoesNotExist: Could not import notes.views. Error was: No module named csrf
+[Wed May 04 03:22:02 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121] mod_wsgi (pid=5046): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/glasses/django.wsgi'.
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121] Traceback (most recent call last):
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 241, in __call__
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]     response = self.get_response(request)
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 73, in get_response
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]     response = middleware_method(request)
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 57, in process_request
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]     _is_valid_path("%s/" % request.path_info)):
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 142, in _is_valid_path
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]     urlresolvers.resolve(path)
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 303, in resolve
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]     return get_resolver(urlconf).resolve(path)
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 125, in resolve
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]     return self.callback, args, kwargs
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 134, in _get_callback
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121]     raise ViewDoesNotExist, "Could not import %s. Error was: %s" % (mod_name, str(e))
+[Tue May 03 22:23:26 2011] [error] [client 67.160.200.121] ViewDoesNotExist: Could not import notes.views. Error was: No module named csrf
+[Wed May 04 03:23:26 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:23:30 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121] mod_wsgi (pid=5046): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/glasses/django.wsgi'.
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121] Traceback (most recent call last):
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 241, in __call__
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]     response = self.get_response(request)
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 73, in get_response
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]     response = middleware_method(request)
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 57, in process_request
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]     _is_valid_path("%s/" % request.path_info)):
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 142, in _is_valid_path
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]     urlresolvers.resolve(path)
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 303, in resolve
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]     return get_resolver(urlconf).resolve(path)
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 125, in resolve
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]     return self.callback, args, kwargs
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 134, in _get_callback
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121]     raise ViewDoesNotExist, "Could not import %s. Error was: %s" % (mod_name, str(e))
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121] ViewDoesNotExist: Could not import notes.views. Error was: No module named csrf
+[Tue May 03 22:23:55 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121] mod_wsgi (pid=5046): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/glasses/django.wsgi'.
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121] Traceback (most recent call last):
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 241, in __call__
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]     response = self.get_response(request)
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 73, in get_response
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]     response = middleware_method(request)
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 57, in process_request
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]     _is_valid_path("%s/" % request.path_info)):
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 142, in _is_valid_path
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]     urlresolvers.resolve(path)
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 303, in resolve
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]     return get_resolver(urlconf).resolve(path)
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 125, in resolve
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]     return self.callback, args, kwargs
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 134, in _get_callback
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121]     raise ViewDoesNotExist, "Could not import %s. Error was: %s" % (mod_name, str(e))
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121] ViewDoesNotExist: Could not import notes.views. Error was: No module named views
+[Tue May 03 22:32:33 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121] mod_wsgi (pid=5047): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/glasses/django.wsgi'.
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121] Traceback (most recent call last):
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 241, in __call__
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]     response = self.get_response(request)
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 73, in get_response
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]     response = middleware_method(request)
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 57, in process_request
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]     _is_valid_path("%s/" % request.path_info)):
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/middleware/common.py", line 142, in _is_valid_path
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]     urlresolvers.resolve(path)
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 303, in resolve
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]     return get_resolver(urlconf).resolve(path)
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 218, in resolve
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]     sub_match = pattern.resolve(new_path)
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 125, in resolve
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]     return self.callback, args, kwargs
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]   File "/usr/lib/pymodules/python2.6/django/core/urlresolvers.py", line 134, in _get_callback
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121]     raise ViewDoesNotExist, "Could not import %s. Error was: %s" % (mod_name, str(e))
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121] ViewDoesNotExist: Could not import notes.views. Error was: No module named notes.views
+[Tue May 03 22:32:36 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:32:41 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:32:53 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:35:15 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Tue May 03 22:42:01 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 06:47:29 2011] [error] [client 38.99.82.222] File does not exist: /srv/www/glassesonme.com/public_html/robots.txt
+[Wed May 04 10:02:48 2011] [error] [client 38.99.82.204] File does not exist: /srv/www/glassesonme.com/public_html/robots.txt
+[Wed May 04 12:50:25 2011] [error] [client 38.99.82.222] File does not exist: /srv/www/glassesonme.com/public_html/robots.txt
+[Wed May 04 16:03:30 2011] [error] [client 66.249.72.162] File does not exist: /srv/www/glassesonme.com/public_html/robots.txt
+[Wed May 04 17:31:36 2011] [error] [client 38.99.82.222] File does not exist: /srv/www/glassesonme.com/public_html/robots.txt
+[Wed May 04 16:23:51 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 16:39:30 2011] [error] [client 72.14.228.129] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 16:47:33 2011] [error] [client 38.99.82.203] File does not exist: /srv/www/glassesonme.com/public_html/robots.txt
+[Wed May 04 16:51:58 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:24:32 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:24:35 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:27:01 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:27:03 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:31:27 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:31:29 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:31:31 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:31:32 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:31:51 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:31:53 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:31:53 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:31:54 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230] mod_wsgi (pid=6620): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/glasses/django.wsgi'.
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230] Traceback (most recent call last):
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/wsgi.py", line 241, in __call__
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]     response = self.get_response(request)
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 134, in get_response
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]     return self.handle_uncaught_exception(request, resolver, exc_info)
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/core/handlers/base.py", line 166, in handle_uncaught_exception
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]     return callback(request, **param_dict)
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/views/defaults.py", line 23, in server_error
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]     t = loader.get_template(template_name) # You need to create a 500.html template.
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/template/loader.py", line 81, in get_template
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]     source, origin = find_template_source(template_name)
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]   File "/usr/lib/pymodules/python2.6/django/template/loader.py", line 74, in find_template_source
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230]     raise TemplateDoesNotExist, name
+[Wed May 04 17:34:44 2011] [error] [client 99.27.43.230] TemplateDoesNotExist: 500.html
+[Wed May 04 22:34:45 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 22:35:21 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 22:41:34 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 22:42:17 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:53:44 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:54:22 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 17:54:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 18:37:41 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 18:40:28 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 18:44:41 2011] [error] [client 99.27.43.230] mod_wsgi (pid=7782): Exception occurred processing WSGI script '/srv/www/glassesonme.com/application/glasses/django.wsgi'., referer: http://glassesonme.com/
+[Wed May 04 18:44:41 2011] [error] [client 99.27.43.230] IOError: failed to write data, referer: http://glassesonme.com/
+[Wed May 04 19:37:04 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 19:38:10 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 19:40:43 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 19:40:46 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 19:41:21 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 19:41:34 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:10:01 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:17:29 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:17:29 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:17:30 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:18:02 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:18:32 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:18:33 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:18:52 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:18:52 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:18:53 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:21:03 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:21:03 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:21:03 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:23:07 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:23:07 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:23:08 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:23:13 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:23:13 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:23:13 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:23:59 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:23:59 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:23:59 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:24:08 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:24:10 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:24:26 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:24:43 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:24:46 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:25:19 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:25:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:25:28 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:28 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:28 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:25:30 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:30 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:31 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:25:39 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:39 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:39 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:25:41 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:41 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:41 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:25:43 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:43 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:43 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:25:52 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:52 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:52 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:25:54 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:54 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:25:54 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:26:09 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:09 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:09 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:26:29 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:29 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:29 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:26:31 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:31 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:32 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:26:35 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:35 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:35 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:26:36 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:36 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:26:37 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:27:04 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:04 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:05 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:27:18 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:18 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:18 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:27:20 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:20 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:20 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:27:21 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:21 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:21 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:27:23 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:23 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:24 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:27:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:27:47 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:47 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:27:47 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:28:32 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:28:32 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:28:32 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:36:14 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:36:14 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:36:14 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:36:17 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:36:17 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:36:17 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:41:15 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:41:15 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:41:27 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:47:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:47:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 20:47:25 2011] [error] [client 99.27.43.230] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 20:47:46 2011] [error] [client 38.99.82.204] File does not exist: /srv/www/glassesonme.com/public_html/robots.txt
+[Wed May 04 21:35:58 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 21:35:58 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 21:35:59 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 21:40:17 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 21:40:17 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 21:40:17 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 21:40:25 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 21:40:25 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 21:40:25 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 21:49:34 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 21:49:34 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Wed May 04 21:49:35 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Wed May 04 23:45:49 2011] [error] [client 66.249.72.161] File does not exist: /srv/www/glassesonme.com/public_html/robots.txt
+[Thu May 05 00:13:06 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Thu May 05 00:13:06 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Thu May 05 00:13:06 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Thu May 05 00:47:45 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Thu May 05 00:47:45 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Thu May 05 00:47:45 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Thu May 05 01:53:56 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Thu May 05 01:53:56 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/
+[Thu May 05 01:53:57 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Thu May 05 10:39:06 2011] [error] [client 113.172.116.127] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/media/front.css
+[Thu May 05 10:39:06 2011] [error] [client 113.172.116.127] File does not exist: /srv/www/glassesonme.com/public_html/images, referer: http://glassesonme.com/media/front.css
+[Thu May 05 10:39:07 2011] [error] [client 113.172.116.127] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Thu May 05 10:39:07 2011] [error] [client 113.172.116.127] File does not exist: /srv/www/glassesonme.com/public_html/favicon.ico
+[Thu May 05 11:53:15 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasaic.com/public_html/images, referer: http://instasaic.com/
+[Thu May 05 11:53:15 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasaic.com/public_html/images, referer: http://instasaic.com/
+[Thu May 05 11:53:15 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:03:08 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasaic.com/public_html/images, referer: http://instasaic.com/
+[Thu May 05 12:03:08 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasaic.com/public_html/images, referer: http://instasaic.com/
+[Thu May 05 12:03:08 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 17:04:30 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:05:41 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:06:49 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:06:50 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:07:28 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:08:44 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:10:03 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:11:58 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:12:46 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:14:04 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:16:19 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:17:17 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 12:33:22 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 13:21:57 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 05 15:25:54 2011] [error] [client 75.36.146.13] File does not exist: /srv/www/instasiac.com
+[Thu May 05 15:25:57 2011] [error] [client 75.36.146.13] File does not exist: /srv/www/instasiac.com
+[Thu May 05 21:51:40 2011] [error] [client 220.181.108.119] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sat May 07 01:16:04 2011] [error] [client 66.249.68.196] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sat May 07 09:43:23 2011] [error] [client 66.249.71.138] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sun May 08 06:44:39 2011] [error] [client 66.249.71.138] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sun May 08 11:49:28 2011] [error] [client 66.249.68.196] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sun May 08 10:10:43 2011] [error] [client 220.181.108.117] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sun May 08 20:21:36 2011] [error] [client 66.249.68.196] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Mon May 09 10:29:29 2011] [error] [client 220.181.108.120] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Mon May 09 18:26:53 2011] [error] [client 66.249.68.196] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Thu May 12 04:19:14 2011] [error] [client 220.181.108.113] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Thu May 12 21:16:15 2011] [error] [client 72.30.161.232] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Thu May 12 19:20:44 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 12 19:33:28 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 12 19:33:28 2011] [error] [client 67.160.200.121] File does not exist: /srv/www/instasiac.com
+[Thu May 12 21:44:45 2011] [error] [client 66.249.68.196] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sat May 14 04:32:25 2011] [error] [client 38.99.82.197] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sat May 14 01:33:35 2011] [error] [client 38.99.82.197] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sat May 14 07:06:16 2011] [error] [client 38.99.82.196] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sat May 14 11:27:15 2011] [error] [client 38.99.82.195] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sat May 14 15:48:15 2011] [error] [client 38.99.82.193] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sat May 14 19:16:18 2011] [error] [client 66.249.68.251] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Sun May 15 21:21:57 2011] [error] [client 72.30.161.232] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Mon May 16 05:51:53 2011] [error] [client 220.181.108.105] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Tue May 17 00:31:28 2011] [error] [client 220.181.108.112] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Wed May 18 01:53:43 2011] [error] [client 66.249.68.251] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Wed May 18 05:18:54 2011] [error] [client 66.249.68.196] File does not exist: /srv/www/instasaic.com/public_html/robots.txt
+[Wed May 18 16:10:28 2011] [error] [client 75.36.146.116] File does not exist: /srv/www/afortunecookieaday.com/public_html/favicon.ico
+[Wed May 18 16:23:13 2011] [error] [client 75.36.146.116] File does not exist: /srv/www/afortunecookieaday.com/public_html/favicon.ico

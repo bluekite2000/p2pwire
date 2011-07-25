@@ -1,0 +1,9 @@
+from django.conf.urls.defaults import patterns, url
+from django.views.generic.simple import direct_to_template
+
+urlpatterns = patterns('notes.views',
+    url(r'^$', 'contact_form', name="contact_form"),
+
+    url(r'^vision/$', direct_to_template, {'template': 'vision.html'},
+        name="vision"),
+)

@@ -1,0 +1,15 @@
+{% extends "main/profile_detail.html" %}
+
+ 
+{% block main%}
+<h1>Edit transaction detail</h1>
+<form method="POST"> {% csrf_token %}
+
+ 	{{ form.errors }}
+ 
+
+    {{ form.as_p }}
+    <input type="submit" name="submit" value="Update" id="submit">
+</form>
+ 
+{% endblock %}

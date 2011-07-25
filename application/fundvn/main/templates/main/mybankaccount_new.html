@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+
+{% block main %}
+<h1>Add new bank account for {{ user }} </h1>
+
+<form method='POST'>{% csrf_token %}
+ {{ form.as_p }} 
+<input type='submit' value='Save'> 
+</form>
+
+{% endblock main %}

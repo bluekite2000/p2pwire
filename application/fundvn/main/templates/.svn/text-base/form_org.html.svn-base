@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Receive a fortune cookie via sms daily</title>		
+		<link rel="stylesheet" type="text/css" href="/media/style_soon.css" />
+		<link rel="stylesheet" type="text/css" href="/media/style.css" />
+		
+		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js'></script>
+		<script type='text/javascript' src='/media/javascripts/jquery.tipsy.js'></script>
+		<script type='text/javascript'>
+		$(function() {
+			$('#tipsy').tipsy({fade: true, gravity: 's'});
+		});
+		</script>
+		<script type="text/javascript" src="/media/jquery.randomContent.js"></script>
+		    <script type="text/javascript">
+				$(document).ready(function(){
+					$('.chuck').randomContent({xmlPath: "/media/chuck.xml", nodeName: "fact"});
+					
+					//var timezone = "America/Los_Angeles";
+					  //$.getJSON("http://json-time.appspot.com/time.json?tz="+timezone+"&callback=?",
+					    //function(data){
+					      //if (data.hour==18) {
+						//send a message everyday at 6pm
+							//$('.chuck').randomContent({xmlPath: "/media/chuck.xml", nodeName: "fact"});
+				    	
+					        //alert ("Good morning in "+timezone);
+					      //} else {
+					        //alert ("Good afternoon in "+timezone);
+					     // }
+					    //})
+				});
+				
+				
+		    </script>
+		 <script type="text/javascript">
+		  /*<![CDATA[*/
+		  jQuery(function() {
+		      var form = jQuery("#contactform");
+		      form.submit(function(e) {
+		          jQuery("#sendbutton").attr('disabled', true)
+		          jQuery("#sendwrapper").prepend('<span>Sending message, please wait... </span>')
+		          jQuery("#ajaxwrapper").load(
+			          
+		              form.attr('action') + ' #ajaxwrapper',
+		              form.serializeArray(),
+		              function(responseText, responseStatus) {
+		                  jQuery("#sendbutton").attr('disabled', false)
+		              }
+		          );
+		          e.preventDefault(); 
+		      });
+		  });
+		  /*]]>*/
+		  </script>
+	
+		
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="hr"></div>
+						
+		
+			
+			
+			<section class="mailing-list">
+				<form  action="{% url contact_form %}" method="post" id="contactform">
+					<div id="ajaxwrapper">
+				    {% csrf_token %}
+				    {{ form.non_field_errors }}
+				
+				    {{ form.as_table}}
+					<input type="submit" value="Wire">	
+				
+					</div>
+				    
+				</form>
+			</section><div class="clear"></div>
+			
+			<div class="hr"></div>
+		
+			
+			
+				
+		</div>
+	</body>
+</html>

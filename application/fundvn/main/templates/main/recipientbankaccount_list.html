@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% load extra	%}
+
+
+{% block main %}
+This is the list of recipients you have created<br>
+<ol>
+{% for obj in object_list.all|filter_by_creator:user %}
+<li>{{ obj }} <a href="{% url recipientbank_edit obj.id %}">Edit</a> <a href="{% url recipientbank_delete obj.id %}">Delete</a></li>
+
+{% endfor %}
+</ol>
+
+{% endblock %}

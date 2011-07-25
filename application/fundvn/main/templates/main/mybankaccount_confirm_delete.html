@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block main %}
+
+<p> Sure?</p>
+<form method="POST" action="."> {% csrf_token %}
+
+  	 <input name="confirm" type="hidden" value="true">
+	 	
+   <input type="submit" value="Delete">
+</form>
+
+{% endblock main %}

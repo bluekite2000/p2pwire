@@ -1,0 +1,35 @@
+#navlist li
+{
+	
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+
+}
+#subheader{ font-size: 92%; border-top: 1px solid #ccc;  }
+
+#content{ padding: 1em 0 5em 0; font-size: 92%; border-top: 1px solid #ccc;  }
+/* //-- footer -- */
+#ft { padding: 1em 0 5em 0; font-size: 92%; border-top: 1px solid #ccc; text-align: left; }
+
+
+
+
+
+#id_sender_country {
+    width: 50px;
+}
+
+#id_receiver_country {
+    width: 50px;
+}
+#id_min_amount {
+    width: 50px;
+}
+#id_max_amount {
+    width: 50px;
+}
+
+#id_vDateField  {
+    width: 500px;
+}

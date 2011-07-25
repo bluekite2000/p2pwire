@@ -1,0 +1,39 @@
+from django.http import HttpResponseRedirect, HttpResponseServerError
+from django.shortcuts import redirect, render
+from django.core.mail import mail_admins
+from forms import ContactForm
+from django.conf import settings
+import os
+
+
+
+
+
+def contact_form(request):
+    fileObj = open(settings.MEDIA_ROOT+'/'+'phone.txt',"a")
+	
+    if request.POST:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            message = "Name: %s  \r\n Phone:%s\r\n" % (
+                form.cleaned_data['name'],
+                form.cleaned_data['phone'],			
+             
+            )
+            fileObj.write(form.cleaned_data['name']+',')
+
+            fileObj.write(form.cleaned_data['phone']+'\n')
+            fileObj.close()
+            mail_admins('Contact form', message, fail_silently=False)
+
+            if request.is_ajax():
+                return render(request, 'success.html')
+            else:
+                return redirect('contact_success')
+    else:
+        form = ContactForm()
+
+    return render(request, 'form.html', {'form':form})
+
+	
+

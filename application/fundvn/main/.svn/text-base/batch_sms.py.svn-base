@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+"""
+Sends an SMS to every person in the PEOPLE dictionary using Twilio.
+
+To use this you'll need to:
+* Have a Twilio account
+* Install Twilio's python module on your python path
+* Change these variables:
+    - ACCOUNT_SID
+    - ACCOUNT_TOKEN
+    - CALLER_ID
+    - PEOPLE
+    - message (In the message sending loop)
+
+"""
+import logging, logging.handlers
+
+import twilio    #https://github.com/twilio/twilio-python
+
+
+#
+# Variables you need to personalise.
+#
+# Twilio AccountSid and AuthToken.
+# These are displayed on your Twilio dashboard
+ACCOUNT_SID ='AC3b08da20f68fc61030d52ab1e115150e'
+ACCOUNT_TOKEN = '2f741ba8d077a89f81d21f16f1494ade'
+
+# Outgoing Caller ID
+# This is the dev sandbox number.
+# You'll need to set up your own number with Twilio.
+CALLER_ID = '4152266087';
+
+# People you'll be messaging.
+PEOPLE = {'dat': '+14154980844',}
+
+# Logging setup.
+logger = logging.getLogger('sms')
+formatter = logging.Formatter('%(levelname)s: %(asctime)s - %(message)s')
+handler = logging.handlers.RotatingFileHandler('batch_sms.log',
+                                               maxBytes=30000,
+                                               backupCount=5)
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+# Change INFO to ERROR to stop logging success messages.
+logger.setLevel(logging.INFO)
+
+# Twilio REST API version.
+API_VERSION = '2010-04-01'
+
+# Twilio SMS resource path.
+SMS_PATH = r'/%s/Accounts/%s/SMS/Messages' % (API_VERSION, ACCOUNT_SID)
+
+# Create a Twilio REST account object.
+account = twilio.Account(ACCOUNT_SID, ACCOUNT_TOKEN)
+
+# Message-sending loop.
+# Sends a message to everyone in our people dictionary.
+for name, number in PEOPLE.items():
+    # Construct the SMS text.
+    message = 'Test message to %s' % (name)
+    # Send an SMS with a POST.
+    try:
+        account.request(path=SMS_PATH,
+                        method='POST',
+                        vars={'To': number,
+                              'From': CALLER_ID,
+                              'Body': message,
+                             })
+        logger.info('SMS sent to %s at %s' % (name, number))
+    except Exception, e:
+        logger.error('Failed to SMS %s. %s' % (name, e))
