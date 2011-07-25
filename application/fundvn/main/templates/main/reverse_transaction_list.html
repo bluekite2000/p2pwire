@@ -1,5 +1,9 @@
-{% extends "main/profile_detail.html" %}
-{% block subsubmain %}
+{% extends "main/profile_base.html" %}
+
+
+{% block main %}
+
+{% block trans %}
 <div id="navcontainer">
 
 <ul id="navlist">
@@ -16,9 +20,6 @@
 </div>
 
 {% endblock %}
-{% block main %}
-
-{% load extra	%}
 
 Recent transactions<br>
 <ol>

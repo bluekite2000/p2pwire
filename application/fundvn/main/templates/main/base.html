@@ -51,7 +51,7 @@
 
 					<li><a href="/recipient_manage/">Manage recipient</a></li>
 
-					<li><a href="/profile_home/">Manage account</a></li>
+					<li><a href="/trans_history/">Manage account</a></li>
 
 
 
@@ -59,12 +59,16 @@
 				</ul>
 
 			</div>
-			
+			<div id="subheader">
+								{% block profile %}{% endblock %}
+
+						</div>
+	
+				
 		<div id="content">
 
 			<div id="primary">
-				{% block submain %}{% endblock %}
-				{% block subsubmain %}{% endblock %}
+
 				{% block main %}{% endblock %}
 
 
