@@ -9,12 +9,12 @@ Recent transactions<br>
 {% for object in  object_list.all %}
 {% ifequal object.status "N" %}
 
-<li> On {{object.created}}</a>, you  want to transfer to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}} an amount of  {{ object.amount }}, which has received the following swap requests
+<li> On {{object.created}}, you request to transfer {{ object.amount }} to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}}. You have received the following swap requests</li>
 
 <ol>
 	
 		{% for reverse_request in  object.reversetransaction_set.all %}
-<li>	{{reverse_request}}</li><a href="{% url rtrans_accept reverse_request.id %}"> Accept</a> </li>
+<li>{{reverse_request.sender.accountfirstname }}, {{ reverse_request.sender.bank.bankcountry}} who requests to transfer {{reverse_request.amount}} to {{reverse_request.receiver.accountfirstname }}, {{ reverse_request.receiver.bank.bankcountry}} <a href="{% url rtrans_accept reverse_request.id %}"> Accept</a> </li>
 	{% endfor %}
 
 </ol>
@@ -22,13 +22,13 @@ Recent transactions<br>
 {% endifequal %}
 {% ifequal object.status "Y" %}
 
-<li> On {{object.created}}, you want to transfer to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}} an amount of  {{ object.amount }}. You then accepted a swap of </li>
+<li> On {{object.created}}, you request to transfer ${{ object.amount }} to  ({{ object.receiver.email }}), {{ object.receiver.bank.bankcountry}}. You accept a swap from </li>
 <ol>
 	
 		{% for reverse_request in  object.reversetransaction_set.all %}
 		{% ifequal reverse_request.status "Y" %}
 
-<li>	{{reverse_request}}</li> </li>
+<li>{{reverse_request.sender.accountfirstname }} ({{reverse_request.sender.createdby.email }}), {{ reverse_request.sender.bank.bankcountry}} who requests to transfer ${{reverse_request.amount}} to {{reverse_request.receiver.accountfirstname }} ({{reverse_request.receiver.email }}), {{ reverse_request.receiver.bank.bankcountry}}</li> 
 {% endifequal %}
 
 	{% endfor %}

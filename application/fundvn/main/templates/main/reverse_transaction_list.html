@@ -6,17 +6,17 @@
 
 
 
-Recent transactions<br>
+Recent reverse transactions<br>
 <ol>
 {% for object in  object_list.all %}
 {% ifequal object.status "N" %}
 
-<li> On {{object.created}} you  want to transfer to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}} an amount of  {{ object.amount }}, in response to {{object.org_tran}}  </li>
+<li> Your request to transfer to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}} ${{ object.amount }} in response to a request by {{object.org_tran.sender.accountfirstname}}, {{ object.org_tran.sender.bank.bankcountry}} to send ${{object.org_tran.amount}} to {{object.org_tran.receiver.accountfirstname}}, {{ object.org_tran.receiver.bank.bankcountry}} has NOT been accepted.</li>
 
 {% endifequal %}
 {% ifequal object.status "Y" %}
 
-<li> Your request to transfer to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}} an amount of  {{ object.amount }}, in response to {{object.org_tran}} has been accepted.</li>
+<li> Your request to transfer to {{ object.receiver.accountfirstname }} ({{ object.receiver.email }}), {{ object.receiver.bank.bankcountry}} ${{ object.amount }} in response to a request by {{object.org_tran.sender.accountfirstname}} ({{ object.org_tran.sender.createdby.email }}), {{ object.org_tran.sender.bank.bankcountry}} to transfer {{object.org_tran.receiver.accountfirstname}}  ({{ object.org_tran.receiver.email }}), {{ object.org_tran.receiver.bank.bankcountry}} ${{object.org_tran.amount}} has been accepted.</li>
 
 {% endifequal %}
 

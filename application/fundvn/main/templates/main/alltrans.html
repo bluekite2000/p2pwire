@@ -20,13 +20,13 @@ Recent transactions<br>
         {% for item in created.list %}
 {% ifequal item.status "N" %}
 
-<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}} wants to transfer to {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}} an amount of  {{ item.amount }}. <a href="{{ item.get_swap_absolute_url }}">Swap with {{ item.sender.accountfirstname}}</a></li>
+<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}} requests to transfer  {{ item.amount }} to {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}} . <a href="{{ item.get_swap_absolute_url }}">Swap with {{ item.sender.accountfirstname}}</a></li>
 
 {% endifequal %} 	
 
 {% ifequal item.status "Y" %}
 
-<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}}  wants to transfer {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}} an amount of  {{ item.amount }}. {{ item.sender.accountfirstname}} accepts a swap. </li>
+<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}}  requests to transfer  {{ item.amount }} to {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}}. {{ item.sender.accountfirstname}} accepts a swap. </li>
 
 {% endifequal %}
 

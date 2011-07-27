@@ -19,6 +19,13 @@ from django.shortcuts import render_to_response
 from main.models import *
 from django.views.generic.list_detail import object_list
 
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from django.utils import simplejson
+from django.utils.functional import Promise
+from django.utils.encoding import force_unicode
+
+
 #static pages
 def about(request):
     return render(request, 'main/about.html')
@@ -109,6 +116,12 @@ def user_public_past_trans(request,createdby):
 
 
 #TRANSACTION CREATE,EDIT AND ACCEPT
+#here is some magic. We need to write custom JSON encoder, since sometimes
+#serializing lazy strings can cause errors. 
+#You need to write it only once and then can reuse in any app
+
+
+
 @login_required
 def transfer(request):
 	if  MyBankAccount.objects.filter(createdby=request.user).exists():                                                                                                                  
@@ -189,18 +202,34 @@ def reverse_trans_accept(request, username, id,public_profile_field=None,templat
 		ot=Transaction.objects.get(id=rev_tran.org_tran.id)
 		ot.status='Y'
 		ot.save()
+		subject = 'swap request on fundvn.com'
+		message='Your swap request has been accepted. please log in fundvn.com to view it!'
 		
+		rev_tran.sender.createdby.email_user(subject, message, settings.DEFAULT_FROM_EMAIL)
 		return render(request, template_name)
 				
 #REVERSE TRANSACTION		
+
+
 @login_required
 def reverse_transfer(request,id):
-	if  MyBankAccount.objects.filter(createdby=request.user).exists():                                                                                                                  
-		url = '/%s/reverse_trans/%s/create' % (request.user.username,id)
-	else:
-		url = '/%s/mybank/add' % request.user.username   
-	return HttpResponseRedirect(url)
 	
+	sender=User.objects.filter(username=request.user.username)
+	
+	if ReverseTransaction.objects.filter(org_tran__id=id, createdby=sender):
+		return render(request, 'main/reverse_transaction_fail.html')
+
+
+	elif Transaction.objects.filter(createdby=sender):
+		return render(request, 'main/reverse_transaction_fail1.html')
+	else:
+		if  MyBankAccount.objects.filter(createdby=request.user).exists():                                                                                                                  
+			url_address = '/%s/reverse_trans/%s/create' % (request.user.username,id)
+		else:
+			url_address = '/%s/mybank/add' % request.user.username  
+		return HttpResponseRedirect(url_address)		
+
+		
 class ReverseTransactionCreateView(CreateView):
 	form_class = ReverseTransactionForm
 	template_name = 'main/reverse_transfer.html'
@@ -227,8 +256,13 @@ class ReverseTransactionCreateView(CreateView):
 	def form_valid(self, form):
 		self.object = form.save(commit=False)
 		self.object.createdby = self.request.user
-		self.object.org_tran=Transaction.objects.get(id=self.kwargs['id'])
+		ot=Transaction.objects.get(id=self.kwargs['id'])
+		self.object.org_tran=ot
 		self.object.save()
+		subject = 'swap request on fundvn.com'
+		message='you have received a swap request. please log in fundvn.com to view it!'
+		
+		ot.sender.createdby.email_user(subject, message, settings.DEFAULT_FROM_EMAIL)
 		return super(ReverseTransactionCreateView, self).form_valid(form)		
 	def get_context_data(self, **kwargs):
 		# Call the base implementation first to get a context
@@ -240,6 +274,7 @@ class ReverseTransactionCreateView(CreateView):
 def reverse_transaction_created(request, username,id, public_profile_field=None,template_name='main/reverse_transaction_created.html',
 							extra_context=None):
 					return render(request, template_name)
+@login_required
 
 def reverse_trans_history(request):
 	url = '/%s/reverse_trans' % request.user.username
@@ -247,12 +282,15 @@ def reverse_trans_history(request):
 	
 		
 		
+@login_required
 	
 #TRANSACT-list all existing transactions-this page is shown in profile section
 def trans_history(request):
+
 	url = '/%s/trans' % request.user.username
 	return HttpResponseRedirect(url)
 
+@login_required
 	
 def user_private_past_trans(request,username):
 	sender=User.objects.filter(username=username)
@@ -263,6 +301,7 @@ def user_private_past_trans(request,username):
 	                  template_name="main/transaction_list.html",
 	                  paginate_by=200,
 	                  page=request.GET.get('page',1))
+@login_required
 	
 def user_private_past_reverse_trans(request,username):
 	sender=User.objects.filter(username=username)
