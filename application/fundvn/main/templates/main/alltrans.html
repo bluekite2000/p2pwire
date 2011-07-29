@@ -1,4 +1,41 @@
 {% extends "main/base.html" %}
+{% block head %}
+<head>
+		<title>p2pwire.com{%block pagetitle %}{% endblock %}</title>
+	  <link rel="stylesheet" href="/media/main.css" />
+<link rel="stylesheet" type="text/css" href="http://jquery-ui.googlecode.com/svn/tags/latest/themes/base/jquery-ui.css" media="all" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+</head>
+{% endblock head %}
+
+{% block script %}
+<script type="text/javascript">
+$(function() {	
+$('#id_sender_country').change(function(){
+  $.get("/citysearch/",
+    {
+      'country_id': $('#id_sender_country').val()
+    },
+    function(data){
+      if(data.valid){
+        var d = '<select id="id_sender_city" name="sender_city">';
+        $.each(data.records, function(k,v){
+          d += '<option value="' + v.id + '">' + v.name +'</option>';
+        });
+        d += '</select>';
+        $('#id_sender_city').html(d);
+      }
+    }, 'json'
+  );
+});
+ });
+
+
+</script>
+
+{% endblock script %}
 
 {% block main %}
 
@@ -20,13 +57,13 @@ Recent transactions<br>
         {% for item in created.list %}
 {% ifequal item.status "N" %}
 
-<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}} requests to transfer  {{ item.amount }} to {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}} . <a href="{{ item.get_swap_absolute_url }}">Swap with {{ item.sender.accountfirstname}}</a></li>
+<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>,{{ item.sender.bank.bankcity}}, {{ item.sender.bank.bankcountry}} requests to transfer  {{ item.amount }} to {{ item.receiver.accountfirstname }}, {{item.receiver.bank.bankcity}}, {{ item.receiver.bank.bankcountry}} . <a href="{{ item.get_swap_absolute_url }}">Swap with {{ item.sender.accountfirstname}}</a></li>
 
 {% endifequal %} 	
 
 {% ifequal item.status "Y" %}
 
-<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcountry}}  requests to transfer  {{ item.amount }} to {{ item.receiver.accountfirstname }}, {{ item.receiver.bank.bankcountry}}. {{ item.sender.accountfirstname}} accepts a swap. </li>
+<li> <a href="{{ item.get_absolute_url }}">{{ item.sender.accountfirstname}}</a>, {{ item.sender.bank.bankcity}},{{ item.sender.bank.bankcountry}}  requests to transfer  {{ item.amount }} to {{ item.receiver.accountfirstname }},{{ item.receiver.bank.bankcity}}, {{ item.receiver.bank.bankcountry}}. {{ item.sender.accountfirstname}} accepts a swap. </li>
 
 {% endifequal %}
 

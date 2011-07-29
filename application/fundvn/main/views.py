@@ -65,36 +65,58 @@ def contact_form(request):
 def main_home(request):
 	url='/%s/alltrans'% request.user.username  
 	return HttpResponseRedirect(url)
+def ajax_city_search(request):
+	import pdb
+	pdb.set_trace()
 	
+	if request.is_ajax() and request.method == 'POST':
+		city = simplejson.dumps(City.objects.filter(countryname=country_id))
+
+		return HttpResponse(city, mimetype='application/javascript')	
+
+
 @login_required
 def searchpage(request, username,form_class=SearchForm):
 	queryset=Transaction.objects.all().order_by('-created')
 	search_form=SearchForm(request.REQUEST)
 	if search_form.is_valid():
 		search_variable1=search_form.cleaned_data.get('sender_country',None)
-		search_variable2=search_form.cleaned_data.get('receiver_country',None)
-		search_variable3=search_form.cleaned_data.get('min_amount',None)
-		search_variable4=search_form.cleaned_data.get('max_amount',None)
+		search_variable2=search_form.cleaned_data.get('sender_city',None)
+		search_variable3=search_form.cleaned_data.get('receiver_country',None)
+		search_variable4=search_form.cleaned_data.get('receiver_city',None)
+
+		search_variable5=search_form.cleaned_data.get('min_amount',None)
+		search_variable6=search_form.cleaned_data.get('max_amount',None)
 
 		if search_variable1:
-			country_query = Country.objects.filter(countryname__iexact=search_variable1)
-			bank_query = Bank.objects.filter(bankcountry=country_query)
-			mybankaccount_query = MyBankAccount.objects.filter(bank=bank_query)
-			queryset=queryset.filter(sender=mybankaccount_query)
-			
-			
-		if search_variable2:
 			#import pdb
 			#pdb.set_trace()
-			country_query = Country.objects.filter(countryname__iexact=search_variable2)
+			country_query = Country.objects.filter(countryname__iexact=search_variable1.countryname)
 			bank_query = Bank.objects.filter(bankcountry=country_query)
-			recipientbankaccount_query = RecipientBankAccount.objects.filter(bank=bank_query)
-			queryset=queryset.filter(receiver=recipientbankaccount_query)
-		
+			mybankaccount_query = MyBankAccount.objects.filter(bank__in=bank_query)
+			queryset=queryset.filter(sender__in=mybankaccount_query)
+		if search_variable2:
+			city_query = City.objects.filter(cityname__iexact=search_variable2.cityname)
+			bank_query = Bank.objects.filter(bankcity=city_query)
+			mybankaccount_query = MyBankAccount.objects.filter(bank__in=bank_query)
+			queryset=queryset.filter(sender__in=mybankaccount_query)			
+			
 		if search_variable3:
-			queryset=queryset.filter(amount__gte=search_variable3)
+
+			country_query = Country.objects.filter(countryname__iexact=search_variable3.countryname)
+			bank_query = Bank.objects.filter(bankcountry=country_query)
+			recipientbankaccount_query = RecipientBankAccount.objects.filter(bank__in=bank_query)
+			queryset=queryset.filter(receiver__in=recipientbankaccount_query)
 		if search_variable4:
-			queryset=queryset.filter(amount__lte=search_variable4)
+
+			city_query = City.objects.filter(cityname__iexact=search_variable4.cityname)
+			bank_query = Bank.objects.filter(bankcity=city_query)
+			recipientbankaccount_query = RecipientBankAccount.objects.filter(bank__in=bank_query)
+			queryset=queryset.filter(receiver__in=recipientbankaccount_query)		
+		if search_variable5:
+			queryset=queryset.filter(amount__gte=search_variable5)
+		if search_variable6:
+			queryset=queryset.filter(amount__lte=search_variable6)
 	
 	
 	return object_list(request,

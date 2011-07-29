@@ -67,6 +67,7 @@ INSTALLED_APPS = (
     'main',
 	'registration',
 	'profiles',
+	'smart_selects',
 )
 AUTH_BANKPROFILE_MODULE = "main.mybankaccount"
 

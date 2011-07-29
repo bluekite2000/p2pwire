@@ -1,6 +1,5 @@
 from django import forms
 from django.db import models
-#from django.forms.models import modelformset_factory
 from fundvn.main.models import *
 
 
@@ -10,18 +9,23 @@ class WaitList(forms.Form):
 
 #TRANSACTION FORMS
 class SearchForm(forms.Form):
-	sender_country=forms.CharField(max_length=20, required=False,label='Sender country')
-	receiver_country=forms.CharField(max_length=20, required=False,label='Receiver country')
+
+	sender_country=forms.ModelChoiceField(queryset=Country.objects.all(), required=False)
+	sender_city=forms.ModelChoiceField(queryset=City.objects.all(), required=False)
+	receiver_country=forms.ModelChoiceField(queryset=Country.objects.all(), required=False)
+	receiver_city=forms.ModelChoiceField(queryset=City.objects.all(), required=False)
 	min_amount=forms.FloatField(required=False,label='with amount from')
 	max_amount=forms.FloatField(required=False,label='to')
-	
+	def __init__(self, *args, **kwargs):
+		super(SearchForm, self).__init__(*args, **kwargs)
+		modelchoicefields = [field for field_name, field in self.fields.iteritems() if isinstance(field, forms.ModelChoiceField)]
+		for field in modelchoicefields:
+			field.empty_label = None
 class TransactionForm(forms.ModelForm):
 	def __init__(self, *args, **kwargs):
-		#import pdb
-		#pdb.set_trace()
+
 		sender = kwargs.pop('sender',None)
-		createdby=kwargs.pop('createdby',None)
-		
+		createdby=kwargs.pop('createdby',None)		
 		super(TransactionForm, self).__init__(*args, **kwargs)
 
 		if sender:
@@ -45,14 +49,10 @@ class TransactionForm(forms.ModelForm):
 #this form is for sender who found a match. It is similar to transaction form,except it doesnt hide the status attribute
 		
 class PostTransactionForm(forms.ModelForm):
-	def __init__(self, *args, **kwargs):
-		#import pdb
-		#pdb.set_trace()
+	def __init__(self, *args, **kwargs):	
 		sender = kwargs.pop('sender',None)
-		createdby=kwargs.pop('createdby',None)
-		
+		createdby=kwargs.pop('createdby',None)		
 		super(PostTransactionForm, self).__init__(*args, **kwargs)
-
 		if sender:
 			self.fields['sender'].queryset = MyBankAccount.objects.filter(createdby=createdby)
 		if createdby:
@@ -94,7 +94,7 @@ class ReverseTransactionForm(forms.ModelForm):
 		model = ReverseTransaction
 		exclude = ('createdby',)
 	
-		fields = ['sender','receiver','created','amount','createdby']
+		fields = ['sender','receiver','created','amount','createdby']	
 	def save(self, *args, **kwargs):
 		u = self.instance
 		u.save()

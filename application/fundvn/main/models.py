@@ -1,17 +1,25 @@
 from django.db import models
 from django.contrib.auth.models import User
+from smart_selects.db_fields import ChainedForeignKey 
 
 class Country(models.Model):
 	countryname=models.CharField(max_length=20)
 	def __unicode__(self):
 		return "%s"% (self.countryname)
+class City(models.Model):
+	cityname=models.CharField(max_length=20)
+	countryname=models.ForeignKey(Country)
+	def __unicode__(self):
+		return " %s "% (self.cityname)	
 		
+
 class Bank(models.Model):
 	bankname=models.CharField(max_length=20)
 	banktype=models.CharField(max_length=20) #checking/saving/etc
+	bankcity=models.ForeignKey(City)	
 	bankcountry=models.ForeignKey(Country)	
 	def __unicode__(self):
-		return "%s %s"%(self.bankname, self.bankcountry)
+		return "%s %s %s"%(self.bankname, self.bankcity, self.bankcountry)
 	
 		
 class MyBankAccount(models.Model):

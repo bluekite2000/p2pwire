@@ -1,6 +1,7 @@
 from django.contrib import admin
-from models import ReverseTransaction,Transaction,Bank,MyBankAccount,Country,RecipientBankAccount
+from models import ReverseTransaction,Transaction,Bank,MyBankAccount,Country,City,RecipientBankAccount
 admin.site.register(Country)
+admin.site.register(City)
 
 admin.site.register(Bank)
 
