@@ -8,7 +8,37 @@ padding-right: 20px;
 }
 #subheader{ font-size: 92%; border-top: 1px solid #ccc;  }
 
-#content{ padding: 1em 0 5em 0; font-size: 92%; border-top: 1px solid #ccc;  }
+{% extends "main/base.html" %}
+{% block head %}
+<head>
+		<title>p2pwire.com{%block pagetitle %}{% endblock %}</title>
+	  <link rel="stylesheet" href="/media/main.css" />
+<link rel="stylesheet" type="text/css" href="http://jquery-ui.googlecode.com/svn/tags/latest/themes/base/jquery-ui.css" media="all" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+</head>
+{% endblock head %}
+
+{% block script %}
+<script type="text/javascript">
+ $(function() {
+        $("#id_created").datepicker({ dateFormat: 'yy-mm-dd' });
+ });
+</script>
+
+{% endblock script %}
+
+
+
+{% block main %}
+You have requested a swap for {{ id }}. Please enter your reverse transfer below:
+<form method='POST'>{% csrf_token %}
+ {{ form.as_p }} 
+<input type='submit' value='Send'> 
+</form>
+
+{% endblock main %}#content{ padding: 1em 0 5em 0; font-size: 92%; border-top: 1px solid #ccc;  }
 /* //-- footer -- */
 #ft { padding: 1em 0 5em 0; font-size: 92%; border-top: 1px solid #ccc; text-align: left; }
 

@@ -12,25 +12,73 @@
 
 {% block script %}
 <script type="text/javascript">
-$(function() {	
-$('#id_sender_country').change(function(){
-  $.get("/citysearch/",
-    {
-      'country_id': $('#id_sender_country').val()
-    },
-    function(data){
-      if(data.valid){
-        var d = '<select id="id_sender_city" name="sender_city">';
-        $.each(data.records, function(k,v){
-          d += '<option value="' + v.id + '">' + v.name +'</option>';
-        });
-        d += '</select>';
-        $('#id_sender_city').html(d);
-      }
-    }, 'json'
-  );
+$(function(){
+	$('#id_sender_country').change(function(){		
+	  	$.get(
+			"/sender_citysearch/",
+			{'country_id': $('#id_sender_country').val()},
+	    	function(data){
+	      	
+	        		var d;
+	        		$.each(data, function(k,v){
+	          			d += '<option value="' + v.fields.cityname + '">' +v.fields.cityname + '<\/option>';
+	        		});
+	        	
+
+	        		$('#id_sender_city').html(d);
+	    	},
+			'json'
+		);
+		$.get(
+			"/sender_countrysearch/",
+			{'country_id': $('#id_sender_country').val()},
+	    	function(data){
+	      	
+	        		var d;
+	        		$.each(data, function(k,v){
+	          			d += '<option value="' + v.fields.countryname + '">' +v.fields.countryname + '<\/option>';
+	        		});
+	        	
+
+	        		$('#id_receiver_country').html(d);
+	    	},
+			'json'
+		);
+	  	$.get(
+			"/receiver_citysearch/",
+			{'country_id': $('#id_receiver_country').val()},
+	    	function(data){
+	      	
+	        		var d;
+	        		$.each(data, function(k,v){
+	          			d += '<option value="' + v.fields.cityname + '">' +v.fields.cityname + '<\/option>';
+	        		});
+	        	
+
+	        		$('#id_receiver_city').html(d);
+	    	},
+			'json'
+		);
+	});
 });
- });
+// $(function() {	
+// $('#id_sender_country').change(function(){
+//   $.post("/citysearch/",
+//     {
+//       'country_id': $('#id_sender_country').val()
+//     },
+//     function(data){
+//       if(data.valid){
+//         var d = '<select id="id_sender_city" name="sender_city">';
+//         $.each(data.records, function(k,v){
+//           d += '<option value="' + v.id + '">' + v.name +'</option>';
+//         });
+//         d += '</select>';
+//         $('#id_sender_city').html(d);
+//       }
+//     }, 'json'
+//   );
+// });
 
 
 </script>

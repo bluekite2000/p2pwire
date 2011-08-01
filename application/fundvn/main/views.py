@@ -22,8 +22,7 @@ from django.views.generic.list_detail import object_list
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.utils import simplejson
-from django.utils.functional import Promise
-from django.utils.encoding import force_unicode
+from django.core import serializers
 
 
 #static pages
@@ -65,16 +64,27 @@ def contact_form(request):
 def main_home(request):
 	url='/%s/alltrans'% request.user.username  
 	return HttpResponseRedirect(url)
-def ajax_city_search(request):
-	import pdb
-	pdb.set_trace()
+def ajax_sender_city_search(request):
+
+	cityname=City.objects.filter(countryname=request.GET['country_id'])
+	data = serializers.serialize("json", cityname)
+
+	return HttpResponse(data, mimetype='application/javascript')	
+
+def ajax_sender_country_search(request):
+
+	opposite_countryname=Country.objects.exclude(id=request.GET['country_id'])
+	data = serializers.serialize("json", opposite_countryname)
+
+	return HttpResponse(data, mimetype='application/javascript')	
 	
-	if request.is_ajax() and request.method == 'POST':
-		city = simplejson.dumps(City.objects.filter(countryname=country_id))
+	
+def ajax_receiver_city_search(request):
+	opposite_countryname=Country.objects.exclude(id=request.GET['country_id'])
+	cityname=City.objects.filter(countryname=opposite_countryname)
+	data = serializers.serialize("json", cityname)
 
-		return HttpResponse(city, mimetype='application/javascript')	
-
-
+	return HttpResponse(data, mimetype='application/javascript')
 @login_required
 def searchpage(request, username,form_class=SearchForm):
 	queryset=Transaction.objects.all().order_by('-created')

@@ -17,7 +17,14 @@ class SearchForm(forms.Form):
 	min_amount=forms.FloatField(required=False,label='with amount from')
 	max_amount=forms.FloatField(required=False,label='to')
 	def __init__(self, *args, **kwargs):
+		#import pdb
+		#pdb.set_trace()
 		super(SearchForm, self).__init__(*args, **kwargs)
+
+		self.fields['sender_city'].queryset=City.objects.filter(countryname=2) #countryname is vietnam
+		self.fields['receiver_country'].queryset=Country.objects.filter(id=3)	#countryname is us
+		self.fields['receiver_city'].queryset=City.objects.filter(countryname=3) #countryname is us
+
 		modelchoicefields = [field for field_name, field in self.fields.iteritems() if isinstance(field, forms.ModelChoiceField)]
 		for field in modelchoicefields:
 			field.empty_label = None

@@ -20,7 +20,10 @@ urlpatterns = patterns('main.views',
 	
 	url(r'^main/$',main_home,name='main_home'),
     url(r'^(?P<username>\w+)/alltrans/$', searchpage, name="searchpage"),
-	url(r'^citysearch/$', ajax_city_search, name ="city_search"),
+	url(r'^sender_citysearch/$', ajax_sender_city_search, name ="sender_city_search"),
+	url(r'^sender_countrysearch/$', ajax_sender_country_search, name ="sender_country_search"),
+	url(r'^receiver_citysearch/$', ajax_receiver_city_search, name ="receiver_city_search"),
+
 	url(r'^public_trans/(?P<createdby>\w+)/$',user_public_past_trans,name="user_public_past_trans"),
 	
 	#TRANSACTION CREATE,EDIT AND ACCEPT
