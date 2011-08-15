@@ -1,11 +1,85 @@
-{% extends "main/base.html" %}
+{% extends "main/profile_base.html" %}
+{% block script %}
 
+<script type="text/javascript">
+    $(function() {
+        $('#id_contact_info_table tbody tr').formset()
+    })
+</script>
+<!-- Here's an example of how you can style add/delete buttons with CSS -->
+<style type="text/css">
+    .add-row {
+        padding-left:18px;
+        background:url({{ MEDIA_URL }}/add.png) no-repeat left center;
+    }
+    .delete-row {
+        float:right;
+        display:block;
+        margin:5px 0 0 5px;
+        text-indent:-6000px;
+        background:url({{ MEDIA_URL }}/delete.png) no-repeat left center;
+        width:16px;
+        height:16px;
+    }
+</style>
+{% endblock %}
 {% block main %}
-<h1>Add new bank account for {{ user }} </h1>
+ <div class="tab_container"> 
+        <div id="tab2" class="tab_content"> 
+{% if formset.initial_form_count > 0 %}
+<p>You now have {{formset.initial_form_count}} account </p>
+<p> Edit current accounts or create new accounts </p>
 
-<form method='POST'>{% csrf_token %}
- {{ form.as_p }} 
-<input type='submit' value='Save'> 
-</form>
+{% else %}
 
+<p>You now have 0  bank accounts. Create new accounts below </p>
+
+{% endif %}
+<div>
+    <div class="entry">
+        <form method="post" action="">{% csrf_token %}
+	     <p>
+                {{ formset.management_form }}
+				{{ formset.non_form_errors }}
+				
+            <table id="id_contact_info_table" border="0" cellpadding="0" cellspacing="5">
+                <thead>
+                    <tr>
+                        <th scope="col">Bank</th>
+                        <th scope="col">First name</th>
+                        <th scope="col">Last name</th>
+                        <th scope="col">Account number</th>
+
+                        <th scope="col">Routing number</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for form in formset.forms %}
+						{{ form.id }}
+                    <tr id="{{ form.prefix }}-row">
+                        <td style="text-align:center;">{{ form.bank}}</td>
+                        <td>{{ form.accountfirstname }}</td>
+                        <td>{{ form.accountlastname }}</td>
+						<td>{{ form.accountnum }}</td>
+						<td>{{ form.routingnum }}</td>
+						{% if formset.initial_form_count > 0  %}
+						 	{% if not formset.errors %}
+						 <td><a href="{% url mybank_delete form.initial.id  %}">Delete</a></td>
+						{% endif %}
+						{% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+       
+                <input type="submit" value="Submit" />
+            </p>
+        </form>
+    </div>
+</div>
+
+</div>
+</div>
 {% endblock main %}

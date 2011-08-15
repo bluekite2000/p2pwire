@@ -1,25 +1,36 @@
 {% extends "main/trans_base.html" %}
 
 {% block main %}
-
-
+ <div class="tab_container"> 
+        <div id="tab1" class="tab_content"> 
 
 Recent transactions<br>
 <ol>
 {% for object in  object_list.all %}
-{% ifequal object.status "N" %}
+	{% ifequal object.status "N" %}
 
-<li> On {{object.created}}, you request to transfer {{ object.amount }} to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}}. You have received the following swap requests</li>
+			<li> On {{object.created}}, you request to transfer {{ object.amount }} to {{ object.receiver.accountfirstname }}, {{ object.receiver.bank.bankcountry}}. </li>
+			
+			{% if object.reversetransaction_set.all %}
+		
 
-<ol>
-	
-		{% for reverse_request in  object.reversetransaction_set.all %}
-<li>{{reverse_request.sender.accountfirstname }}, {{ reverse_request.sender.bank.bankcountry}} who requests to transfer {{reverse_request.amount}} to {{reverse_request.receiver.accountfirstname }}, {{ reverse_request.receiver.bank.bankcountry}} <a href="{% url rtrans_accept reverse_request.id %}"> Accept</a> </li>
-	{% endfor %}
+			You have received the following swap requests
 
-</ol>
+				<ol>
 
+				{% for reverse_request in  object.reversetransaction_set.all %}
+
+					<li>{{reverse_request.sender.accountfirstname }}, {{ reverse_request.sender.bank.bankcountry}} who requests to transfer {{reverse_request.amount}} to {{reverse_request.receiver.accountfirstname }}, {{ reverse_request.receiver.bank.bankcountry}} <a href="{% url rtrans_accept reverse_request.id %}"> Accept</a> </li>
+				
+					{% endfor %}
+
+				</ol>
+			{% else %}
+	You currently have 0 swap requests.
+			{% endif %}
 {% endifequal %}
+
+
 {% ifequal object.status "Y" %}
 
 <li> On {{object.created}}, you request to transfer ${{ object.amount }} to  ({{ object.receiver.email }}), {{ object.receiver.bank.bankcountry}}. You accept a swap from </li>
@@ -41,5 +52,6 @@ Recent transactions<br>
 
 
 <br>
-
+</div>	
+</div>
 {% endblock %}

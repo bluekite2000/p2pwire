@@ -1,6 +1,11 @@
 from django import forms
+from django.forms import formsets
 from django.db import models
 from fundvn.main.models import *
+from django.forms import fields
+from django.forms.models import ModelForm, BaseModelFormSet,modelformset_factory 
+from models import RecipientBankAccount
+from models import MyBankAccount
 
 
 class WaitList(forms.Form):
@@ -20,10 +25,10 @@ class SearchForm(forms.Form):
 		#import pdb
 		#pdb.set_trace()
 		super(SearchForm, self).__init__(*args, **kwargs)
-
-		self.fields['sender_city'].queryset=City.objects.filter(countryname=2) #countryname is vietnam
-		self.fields['receiver_country'].queryset=Country.objects.filter(id=3)	#countryname is us
-		self.fields['receiver_city'].queryset=City.objects.filter(countryname=3) #countryname is us
+		
+		self.fields['sender_city'].queryset=City.objects.filter(countryname=1) #countryname is vietnam
+		self.fields['receiver_country'].queryset=Country.objects.filter(id=2)	#countryname is us
+		self.fields['receiver_city'].queryset=City.objects.filter(countryname=2) #countryname is us
 
 		modelchoicefields = [field for field_name, field in self.fields.iteritems() if isinstance(field, forms.ModelChoiceField)]
 		for field in modelchoicefields:
@@ -109,32 +114,96 @@ class ReverseTransactionForm(forms.ModelForm):
 		return transaction
 
 #BANK ACCOUNT FORM
-class BankAccountForm(forms.ModelForm):
-	
-	def __init__(self, *args, **kwargs):
-		super(BankAccountForm, self).__init__(*args, **kwargs)
-		
-	class Meta:
-		model = MyBankAccount
-		exclude = ('createdby',)
-	def save(self, *args, **kwargs):
-		u = self.instance
-		u.save()
-		mybankaccount = super(BankAccountForm, self).save(*args,**kwargs)
-		return mybankaccount
-		
+class MyBankAccountFormSet(BaseModelFormSet): 
+  def __init__(self, *args, **kwargs): 
+    #import pdb
+    #pdb.set_trace()
+    #self.queryset = kwargs.pop('queryset', [])
+    self.user = kwargs.pop('user') 
+    super(MyBankAccountFormSet, self).__init__(*args, **kwargs) 
+    self.queryset = kwargs.pop('queryset', [])
+  def _construct_form(self, i, **kwargs): 
+    kwargs['user'] = self.user 
+    """
+    if self.queryset:
+        #try:
+            kwargs['queryset'] = self.queryset[i]
+        except IndexError:
+            pass
+    """    
+    return super(MyBankAccountFormSet, self)._construct_form(i, **kwargs) 
+
+
+
+class MyBankAccountForm(ModelForm): 
+  def __init__(self, *args, **kwargs): 
+    #import pdb
+    #pdb.set_trace()
+    self.createdby = kwargs.pop('user') 
+    super(MyBankAccountForm, self).__init__(*args, **kwargs) 
+
+  class Meta:
+   model = MyBankAccount
+  def clean(self): 
+    # use self.user 
+    return self.cleaned_data 
+   
+
+  def save(self, commit=True):
+      inst = super(MyBankAccountForm, self).save(commit=False)
+      inst.createdby = self.createdby
+      if commit:
+          inst.save()
+      return inst
+
+
+MyBankAccountFormset = modelformset_factory(MyBankAccount, form=MyBankAccountForm, 
+    formset=MyBankAccountFormSet, extra=1, max_num=1,exclude=('createdby')) 
+
 		
 #RECIPIENT BANK ACCOUNT FORM		
-class RecipientBankAccountForm(forms.ModelForm):
+class RecipientBankAccountFormSet(BaseModelFormSet): 
+  def __init__(self, *args, **kwargs): 
+    #import pdb
+    #pdb.set_trace()
+    #self.queryset = kwargs.pop('queryset', [])
+    self.user = kwargs.pop('user') 
+    super(RecipientBankAccountFormSet, self).__init__(*args, **kwargs) 
+    self.queryset = kwargs.pop('queryset', [])
+  def _construct_form(self, i, **kwargs): 
+    kwargs['user'] = self.user 
+    """
+    if self.queryset:
+        #try:
+            kwargs['queryset'] = self.queryset[i]
+        except IndexError:
+            pass
+    """    
+    return super(RecipientBankAccountFormSet, self)._construct_form(i, **kwargs) 
 
-	def __init__(self, *args, **kwargs):
-		super(RecipientBankAccountForm, self).__init__(*args, **kwargs)
 
-	class Meta:
-		model = RecipientBankAccount
-		exclude = ('createdby',)
-	def save(self, *args, **kwargs):
-		u = self.instance
-		u.save()
-		recipientbankaccount = super(RecipientBankAccountForm, self).save(*args,**kwargs)
-		return recipientbankaccount
+
+class RecipientBankAccountForm(ModelForm): 
+  def __init__(self, *args, **kwargs): 
+    #import pdb
+    #pdb.set_trace()
+    self.createdby = kwargs.pop('user') 
+    super(RecipientBankAccountForm, self).__init__(*args, **kwargs) 
+
+  class Meta:
+   model = RecipientBankAccount
+  def clean(self): 
+    # use self.user 
+    return self.cleaned_data 
+   
+
+  def save(self, commit=True):
+      inst = super(RecipientBankAccountForm, self).save(commit=False)
+      inst.createdby = self.createdby
+      if commit:
+          inst.save()
+      return inst
+
+
+RecipientBankAccountFormset = modelformset_factory(RecipientBankAccount, form=RecipientBankAccountForm, 
+    formset=RecipientBankAccountFormSet, extra=1, max_num=1,exclude=('createdby')) 

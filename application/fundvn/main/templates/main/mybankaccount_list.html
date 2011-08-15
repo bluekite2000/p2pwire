@@ -6,21 +6,27 @@
 {% load extra	%}
 
 
-This is the list of bank accounts you have created<br>
-<ol>
-{% for obj in object_list.all|filter_by_user:user %}
-<li>{{ obj }} <a href="{% url mybank_edit obj.id %}">Edit</a> <a href="{% url mybank_delete obj.id %}">Delete</a></li>
-
-{% endfor %}
-</ol>
-<!-- <ol>{{ object_list.all|filter_by_user:user|safeseq|unordered_list }}</ol> -->
+ <div class="tab_container"> 
+        <div id="tab2" class="tab_content"> 
+{% if object_list.all|filter_by_user:user %}	
 	
-<br>
+	This is a list of bank accounts you have created
+	<ol>
+		{% for obj in object_list.all|filter_by_user:user %}
+		<li>{{ obj }} <a href="{% url mybank_edit obj.id %}">Edit</a> <a href="{% url mybank_delete obj.id %}">Delete</a></li>
+
+		{% endfor %}
+	</ol>
+
+{% else %}
+You have not created any bank account. Please create one now.
+{% endif %}	
 
 
-<ul id="navlist">
+
 <li id="active"><a href="/mybank_add" id="current">Add another bank</a></li>
 
-</ul>
+
+</div>	
 </div>
 {% endblock %}

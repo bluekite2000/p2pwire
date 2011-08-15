@@ -1,25 +1,27 @@
 {% extends "main/base.html" %}
 
 {% block profile %}
-    <div id="subheader">
 
-<div id="navcontainer">
-<ul id="navlist">
-            <li><a href="/trans_history/">Transaction Info</a></li>
+
+<ul class="tabs"> 
+       <li><a href="/trans_history/">Transaction Info</a></li>
 
         <li><a href="/profile_home/">Account Info</a></li>
         
-<li><a href="/mybank_manage/">Bank Info</a></li>
+<li><a href="/mybank_add/">Bank Info</a></li>
+		
 
-    </ul>
 
-</div>
-</div>
+	</ul>
+	
+
 	
 {% endblock %}
-    <div id="subheader">
-                                {% block trans %}{% endblock %}
-                        </div>	
+
+{% block trans %}
+{% endblock %}
+
+
 {% block main %}
 
 

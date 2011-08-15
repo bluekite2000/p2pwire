@@ -9,6 +9,7 @@ from models import RecipientBankAccount
 from profiles.forms import ProfileForm
 from profiles.views import *
 
+from main.forms import RecipientBankAccountFormset
 
 urlpatterns = patterns('main.views',
 	#WAITING LIST
@@ -53,33 +54,31 @@ urlpatterns = patterns('main.views',
 	url(r'^profile_edit/$',profile_edit,name='profile_edit'),	                       
 	url(r'^(?P<username>\w+)/profiles/edit/$',edit_profile,{'form_class': ProfileForm,'success_url':None,}),
 	#PROFILE-bank-list all existing bank accounts
-	url(r'^mybank_manage/$',mybank_manage,name='mybank_manage'),
-	url(r'^(?P<username>\w+)/mybank/manage/$',ListView.as_view(model=MyBankAccount)),
+	#url(r'^mybank_manage/$',mybank_manage,name='mybank_manage'),
+	#url(r'^(?P<username>\w+)/mybank/manage/$',ListView.as_view(model=MyBankAccount)),
 	#PROFILE-bank-add a new bank account
-	url(r'^mybank_add/$',mybank_add,name='mybank_add'),
-	url(r'^(?P<username>\w+)/mybank/add/$',BankAccountCreateView.as_view(model=MyBankAccount)),
-	url(r'^(?P<username>\w+)/mybank/add/success/$',mybank_added,name='mybank_added'),							
-		
-	#PROFILE-bank-edit an existing bank account		
-    url(r'^mybank/edit/(\d+)/$', mybank_edit, name="mybank_edit"),
-	url(r'^(?P<username>\w+)/mybank/edit/(?P<pk>\d+)/$', BankAccountUpdateView.as_view(model=MyBankAccount)),
-	url(r'^(?P<username>\w+)/mybank/edit/(\d+)/success/$',mybank_edited,name='mybank_edited'),							
+	#url(r'^mybank_add/$',mybank_add,name='mybank_add'),
+	#url(r'^(?P<username>\w+)/mybank/add/$',BankAccountCreateView.as_view(model=MyBankAccount)),
+	#url(r'^(?P<username>\w+)/mybank/add/success/$',mybank_added,name='mybank_added'),							
+		url(r'^mybank_add/$',mybank_add,name='mybank_add'),
+	url(r'^(?P<username>\w+)/mybank/add/$','my_formset', {'formset_class': MyBankAccountFormset, 'template': 'main/mybankaccount_new.html'}, name='mybank_new'),	
+						
 	#PROFILE-bank-delete an existing bank account
 	url(r'^mybank/delete/(\d+)/$', mybank_delete, name="mybank_delete"),
 	url(r'^(?P<username>\w+)/mybank/delete/(?P<pk>\d+)/$', BankAccountDeleteView.as_view(model=MyBankAccount)),
 	url(r'^(?P<username>\w+)/mybank/delete/(\d+)/success/$',mybank_deleted,name='mybank_deleted'),
 	
 	#RECIPIENT-list all recipients		
-	url(r'^recipient_manage/$',recipient_manage,name='recipient_manage'),
-	url(r'^(?P<username>\w+)/recipient/manage/$',ListView.as_view(model=RecipientBankAccount)),												
+	#url(r'^recipient_manage/$',recipient_manage,name='recipient_manage'),
+	#url(r'^(?P<username>\w+)/recipient/manage/$',ListView.as_view(model=RecipientBankAccount)),												
 	#RECIPIENT-add new recipient
 	url(r'^recipient_add/$',recipient_add,name='recipient_add'),
-	url(r'^(?P<username>\w+)/recipient/add/$',RecipientBankAccountCreateView.as_view(model=RecipientBankAccount)),
-	url(r'^(?P<username>\w+)/recipient/add/success/$',recipient_added,name='recipient_added'),
+	url(r'^(?P<username>\w+)/recipient/add/$','formset', {'formset_class': RecipientBankAccountFormset, 'template': 'main/recipientbankaccount_new.html'}, name='recipient_new'),
+	#url(r'^(?P<username>\w+)/recipient/add/success/$',recipient_added,name='recipient_added'),
 	#RECIPIENT-edit existing recipient
-	url(r'^recipientbank/edit/(\d+)/$',recipientbank_edit, name="recipientbank_edit"),
-	url(r'^(?P<username>\w+)/recipientbank/edit/(?P<pk>\d+)/$', RecipientBankAccountUpdateView.as_view(model=RecipientBankAccount)),
-	url(r'^(?P<username>\w+)/recipientbank/edit/(\d+)/success/$',recipientbank_edited,name='recipientbank_edited'),							
+	#url(r'^recipientbank/edit/(\d+)/$',recipientbank_edit, name="recipientbank_edit"),
+	#url(r'^(?P<username>\w+)/recipientbank/edit/(?P<pk>\d+)/$', RecipientBankAccountUpdateView.as_view(model=RecipientBankAccount)),
+	#url(r'^(?P<username>\w+)/recipientbank/edit/(\d+)/success/$',recipientbank_edited,name='recipientbank_edited'),							
 	#RECIPIENT-delete existing recipient
 	url(r'^recipientbank/delete/(\d+)/$', recipientbank_delete, name="recipientbank_delete"),
 	url(r'^(?P<username>\w+)/recipientbank/delete/(?P<pk>\d+)/$', RecipientBankAccountDeleteView.as_view(model=RecipientBankAccount)),

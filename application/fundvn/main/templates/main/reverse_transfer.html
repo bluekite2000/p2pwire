@@ -1,17 +1,9 @@
 {% extends "main/base.html" %}
-{% block head %}
-<head>
-		<title>p2pwire.com{%block pagetitle %}{% endblock %}</title>
-	  <link rel="stylesheet" href="/media/main.css" />
-<link rel="stylesheet" type="text/css" href="http://jquery-ui.googlecode.com/svn/tags/latest/themes/base/jquery-ui.css" media="all" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-
-</head>
-{% endblock head %}
 
 {% block script %}
 <script type="text/javascript">
+
+
  $(function() {
         $("#id_created").datepicker({ dateFormat: 'yy-mm-dd' });
  });

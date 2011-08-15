@@ -41,7 +41,7 @@ class RecipientBankAccount(models.Model):
 	accountlastname=models.CharField(max_length=20)
 	accountnum=models.IntegerField(unique=True)
 	routingnum=models.IntegerField()	
-	email=models.CharField(max_length=20)	
+	email=models.EmailField(max_length=20)	
 
 	createdby=models.ForeignKey(User,null=True, related_name="creator_of_recipient_account")
 	def __unicode__(self):

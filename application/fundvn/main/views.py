@@ -24,6 +24,10 @@ from django.template.loader import render_to_string
 from django.utils import simplejson
 from django.core import serializers
 
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.template.context import RequestContext
+from main.forms import RecipientBankAccountFormset
 
 #static pages
 def about(request):
@@ -361,65 +365,50 @@ def mybank_add(request):
 	url = '/%s/mybank/add' % request.user.username
 	return HttpResponseRedirect(url)
 	
-@login_required
-def mybank_edit(request,objectid):
-	url = '/%s/mybank/edit/%s' % ( request.user.username, objectid)
-	return HttpResponseRedirect(url)	
+def display_mydata(request, data, **kwargs):
+
+	url = '/%s/mybank/add' % request.user.username
+	return HttpResponseRedirect(url)
+
+def my_formset(request, username, formset_class, template):
+
+    if request.method == 'POST':
+
+        formset = MyBankAccountFormset(request.POST, user=request.user)
+
+        if formset.is_valid():
+            for form in formset:
+
+                    form.save()    
+            data = formset.cleaned_data
+            return display_mydata(request, data)
+    else:
+
+        my_bank=MyBankAccount.objects.filter(createdby=request.user)
+        formset = MyBankAccountFormset(queryset=my_bank, user=request.user)
+    return render_to_response(template, {'formset': formset},
+        context_instance=RequestContext(request))
 @login_required
 def mybank_delete(request,objectid):
 	url = '/%s/mybank/delete/%s' % ( request.user.username, objectid)
 	return HttpResponseRedirect(url)
 
-@login_required
-def mybank_added(request, username, public_profile_field=None,template_name='main/mybankaccount_created.html',
-					extra_context=None):
-	return render(request, template_name)
-	
-class BankAccountCreateView(CreateView):
-	form_class = BankAccountForm
-	template_name='main/mybankaccount_new.html'
-	success_url='success'
-	def form_valid(self, form):
-		self.object = form.save(commit=False)
-		self.object.createdby = self.request.user
-		self.object.save()
-		return super(BankAccountCreateView, self).form_valid(form)	
-class BankAccountUpdateView(UpdateView):
 
-	form_class = BankAccountForm
-	template_name='main/mybankaccount_edit.html'
-	success_url='success'
-	def get(self, request, *args, **kwargs):
-		self.object = self.get_object()
-		return super(BankAccountUpdateView, self).get(request, *args, **kwargs)
-	def post(self, request, *args, **kwargs):
-		self.object = self.get_object()
-		return super(BankAccountUpdateView, self).post(request, *args, **kwargs)
+
 		
 class BankAccountDeleteView(DeleteView):
-	form_class = BankAccountForm
+	form_class = MyBankAccountForm
 	success_url='success'
-	def get(self, request, *args, **kwargs):
-		self.object = self.get_object()		
-		return super(BankAccountDeleteView, self).get(request, *args, **kwargs)
+
 	def delete(self, request, *args, **kwargs):
 		self.object = self.get_object()
 		self.object.delete()
 		return HttpResponseRedirect(self.get_success_url())
-		
-	def form_valid(self, form):
-		self.object = form.save(commit=False)
-		self.object.createdby = self.request.user
-		self.object.save()
-		return super(BankAccountCreateView, self).form_valid(form)
-@login_required
-def mybank_edited(request, username, public_profile_field=None,template_name='main/mybankaccount_edited.html',
-							extra_context=None):
-	return render(request, template_name)
 @login_required
 def mybank_deleted(request, username, public_profile_field=None,template_name='main/mybankaccount_deleted.html',
 								extra_context=None):
 	return render(request, template_name)			
+
 
 
 #ACCOUNT MANAGEMENT-RECIPIENT			
@@ -427,36 +416,71 @@ def mybank_deleted(request, username, public_profile_field=None,template_name='m
 def recipient_manage(request):
 	url = '/%s/recipient/manage' % request.user.username
 	return HttpResponseRedirect(url)
+	
+	
+@login_required
+def recipient_add(request):
+	url = '/%s/recipient/add' % request.user.username
+	return HttpResponseRedirect(url)
+
+def display_data(request, data, **kwargs):
+
+	url = '/%s/recipient/add' % request.user.username
+	return HttpResponseRedirect(url)
+
+def formset(request, username, formset_class, template):
+
+    if request.method == 'POST':
+
+        formset = RecipientBankAccountFormset(request.POST, user=request.user)
+        if formset.is_valid():
+            for form in formset:
+
+                    form.save()    
+            data = formset.cleaned_data
+            return display_data(request, data)
+    else:
+
+        recipient_bank=RecipientBankAccount.objects.filter(createdby=request.user)
+        formset = RecipientBankAccountFormset(queryset=recipient_bank, user=request.user)
+    return render_to_response(template, {'formset': formset},
+        context_instance=RequestContext(request))
+
+@login_required
+def recipientbank_delete(request,objectid):
+	url = '/%s/recipientbank/delete/%s' % ( request.user.username, objectid)
+	return HttpResponseRedirect(url)
+	
+	
+class RecipientBankAccountDeleteView(DeleteView):
+	form_class = RecipientBankAccountForm
+	success_url='success'
+
+	def delete(self, request, *args, **kwargs):
+		self.object = self.get_object()
+		self.object.delete()
+		return HttpResponseRedirect(self.get_success_url())
+
+				
+@login_required
+def recipientbank_deleted(request, username, public_profile_field=None,template_name='main/recipientbankaccount_deleted.html',
+										extra_context=None):
+	return render(request, template_name)
+	
+"""
 
 @login_required
 def manage_recipient(request, username, public_profile_field=None,template_name='main/recipientbankaccount_list.html',
 		extra_context=None):
 	return render(request, template_name)	
-@login_required
-def recipient_add(request):
-	url = '/%s/recipient/add' % request.user.username
-	return HttpResponseRedirect(url)
+	
+	
+
 @login_required
 def recipient_added(request, username, public_profile_field=None,template_name='main/recipient_created.html',
 				extra_context=None):
 		return render(request, template_name)
-
-class RecipientBankAccountCreateView(CreateView):
-	form_class = RecipientBankAccountForm
-	template_name='main/recipientbankaccount_new.html'
-	success_url='success'
-	@method_decorator(login_required)
-	def dispatch(self, *args, **kwargs):
-		return super(RecipientBankAccountCreateView, self).dispatch(*args, **kwargs)
-	def get_form_kwargs(self, **kwargs):
-		kwargs = super(RecipientBankAccountCreateView, self).get_form_kwargs(**kwargs)
-		return kwargs
-	def form_valid(self, form):
-		self.object = form.save(commit=False)
-		self.object.createdby = self.request.user
-		self.object.save()
-		return super(RecipientBankAccountCreateView, self).form_valid(form)
-
+		
 @login_required
 def recipientbank_edit(request,objectid):
 	url = '/%s/recipientbank/edit/%s' % ( request.user.username, objectid)
@@ -476,32 +500,6 @@ class RecipientBankAccountUpdateView(UpdateView):
 	def post(self, request, *args, **kwargs):
 		self.object = self.get_object()
 		return super(RecipientBankAccountUpdateView, self).post(request, *args, **kwargs)
-		
-@login_required
-def recipientbank_delete(request,objectid):
-	url = '/%s/recipientbank/delete/%s' % ( request.user.username, objectid)
-	return HttpResponseRedirect(url)
-	
-	
-class RecipientBankAccountDeleteView(DeleteView):
-	form_class = RecipientBankAccountForm
-	success_url='success'
-	def get(self, request, *args, **kwargs):
-		self.object = self.get_object()
-		return super(RecipientBankAccountDeleteView, self).get(request, *args, **kwargs)
-	def delete(self, request, *args, **kwargs):
-		self.object = self.get_object()
-		self.object.delete()
-		return HttpResponseRedirect(self.get_success_url())
-	def form_valid(self, form):
-		self.object = form.save(commit=False)
-		self.object.createdby = self.request.user
-		self.object.save()
-		return super(RecipientBankAccountCreateView, self).form_valid(form)
-				
-@login_required
-def recipientbank_deleted(request, username, public_profile_field=None,template_name='main/recipientbankaccount_deleted.html',
-										extra_context=None):
-	return render(request, template_name)
-	
+"""		
+
 

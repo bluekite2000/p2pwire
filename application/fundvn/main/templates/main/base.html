@@ -5,13 +5,42 @@
 	<head>
 
 		<title>p2pwire.com{%block pagetitle %}{% endblock %}</title>
-	  <link rel="stylesheet" href="/media/main.css" />
+	  <link rel="stylesheet" href="{{ MEDIA_URL }}/main.css" />
+<link rel="stylesheet" type="text/css" href="http://jquery-ui.googlecode.com/svn/tags/latest/themes/base/jquery-ui.css" media="all" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="{{ MEDIA_URL }}/jquery.formset.min.js"></script>
 
 	</head>
 
 {% endblock %}
 
 {%block script %}
+
+<script type="text/javascript"> 
+ 
+$(document).ready(function() {
+ 
+	//Default Action
+	$(".tab_content").hide(); //Hide all content
+	//$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+	
+	//On Click Event
+	$("ul.tabs li").click(function() {
+		//$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		//$(this).addClass("active"); //Add "active" class to selected tab
+		
+		$(".tab_content").hide(); //Hide all tab content
+		var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+		$(activeTab).fadeIn(); //Fade in the active content
+		return false;
+	});
+ 
+});
+</script> 
+
 
 {% endblock %}
 
@@ -39,8 +68,7 @@
 			</ul>
 
 		</div>
-			<div id="subheader">
-			<ul id="navlist">
+<ul class="tabs"> 
 
 <li><a href="/main/">Recent transactions</a></li>
 
@@ -48,7 +76,7 @@
 
 
 
-					<li><a href="/recipient_manage/">Manage recipient</a></li>
+					<li><a href="/recipient_add/">Manage recipient</a></li>
 
 					<li><a href="/trans_history/">Manage account</a></li>
 
@@ -57,26 +85,22 @@
 
 				</ul>
 
-			</div>
+		
                                 {% block profile %}{% endblock %}
      
                                 {% block trans %}{% endblock %}
-		<div id="content">
 
-			<div id="primary">
 
 				{% block main %}{% endblock %}
 
 
 
 
-			</div>
 
 		
 
 
 
-		</div>
 
 	</body>
 	<div id="ft">

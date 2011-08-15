@@ -3,6 +3,8 @@
 
 
 {% block main %}
+ <div class="tab_container"> 
+        <div id="tab1" class="tab_content"> 
 This is the list of recipients you have created<br>
 <ol>
 {% for obj in object_list.all|filter_by_creator:user %}
@@ -11,5 +13,7 @@ This is the list of recipients you have created<br>
 {% endfor %}
 </ol>
 <a href="/recipient_add/">Add recipient</a>
+</div>
+</div>
 
 {% endblock %}

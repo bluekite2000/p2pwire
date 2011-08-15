@@ -26,7 +26,8 @@ MEDIA_ROOT = os.path.join(ROOT_PATH, 'media')
 #IMAGE_ROOT = os.path.join(ROOT_PATH, 'image/')
 #MEDIA_ROOT='media'
 ## Changed
-MEDIA_URL = 'http:/fundvn.com/media/'
+##MEDIA_URL = 'http:/fundvn.com/media/'
+MEDIA_URL = '/media'
 
 ## Changed but irrelevant
 ADMIN_MEDIA_PREFIX = '/admin_media/'

@@ -1,13 +1,15 @@
 {% extends "main/base.html" %}
 
 {% block main %}
-
-<p> Sure?</p>
+ <div class="tab_container"> 
+        <div id="tab2" class="tab_content"> 
+<p> Are you sure you want to delete this account?</p>
 <form method="POST" action="."> {% csrf_token %}
 
   	 <input name="confirm" type="hidden" value="true">
 	 	
    <input type="submit" value="Delete">
 </form>
-
+</div>
+</div>
 {% endblock main %}
