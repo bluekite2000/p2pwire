@@ -56,7 +56,6 @@
         <form method="post" action="">{% csrf_token %}
 	     <p>
                 {{ formset.management_form }}
-			{{ formset.non_form_errors }}
 
             <table id="id_contact_info_table" border="0" cellpadding="0" cellspacing="5">
                 <thead>
@@ -73,6 +72,8 @@
                 </thead>
                 <tbody>
                     {% for form in formset.forms %}
+			{{ form.errors }}
+
 						{{ form.id }}
                     <tr id="{{ form.prefix }}-row">
                         <td style="text-align:center;">{{ form.bank}}</td>
