@@ -71,8 +71,11 @@
                     </tr>
                 </thead>
                 <tbody>
+{% for dict in formset.errors %}
+  {{dict}}
+{% endfor %}
+
                     {% for form in formset.forms %}
-			{{ form.errors }}
 
 						{{ form.id }}
                     <tr id="{{ form.prefix }}-row">
