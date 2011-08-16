@@ -27,7 +27,6 @@ from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-from main.forms import RecipientBankAccountFormset
 
 #static pages
 def about(request):
@@ -467,39 +466,3 @@ def recipientbank_deleted(request, username, public_profile_field=None,template_
 										extra_context=None):
 	return render(request, template_name)
 	
-"""
-
-@login_required
-def manage_recipient(request, username, public_profile_field=None,template_name='main/recipientbankaccount_list.html',
-		extra_context=None):
-	return render(request, template_name)	
-	
-	
-
-@login_required
-def recipient_added(request, username, public_profile_field=None,template_name='main/recipient_created.html',
-				extra_context=None):
-		return render(request, template_name)
-		
-@login_required
-def recipientbank_edit(request,objectid):
-	url = '/%s/recipientbank/edit/%s' % ( request.user.username, objectid)
-	return HttpResponseRedirect(url)
-@login_required
-def recipientbank_edited(request, username, public_profile_field=None,template_name='main/recipientbankaccount_edited.html',
-								extra_context=None):
-		return render(request, template_name)	
-class RecipientBankAccountUpdateView(UpdateView):
-	
-	form_class = RecipientBankAccountForm
-	template_name='main/recipientbankaccount_edit.html'
-	success_url='success'
-	def get(self, request, *args, **kwargs):
-		self.object = self.get_object()
-		return super(RecipientBankAccountUpdateView, self).get(request, *args, **kwargs)
-	def post(self, request, *args, **kwargs):
-		self.object = self.get_object()
-		return super(RecipientBankAccountUpdateView, self).post(request, *args, **kwargs)
-"""		
-
-

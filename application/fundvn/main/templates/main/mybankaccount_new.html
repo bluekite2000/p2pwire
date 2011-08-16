@@ -27,14 +27,30 @@
  <div class="tab_container"> 
         <div id="tab2" class="tab_content"> 
 {% if formset.initial_form_count > 0 %}
-<p>You now have {{formset.initial_form_count}} account </p>
-<p> Edit current accounts or create new accounts </p>
+<p>You now have {{formset.initial_form_count}} account(s): </p>
+<ul>
 
+      {% for form in formset %}
+<li>
+  			<td >{{ form.instance.bank}}</td>
+                        <td>{{ form.instance.accountfirstname }}</td>
+                        <td>{{ form.instance.accountlastname }}</td>
+						<td>{{ form.instance.accountnum }}</td>
+						<td>{{ form.instance.routingnum }}</td>
+						<td>{{ form.instance.email }}</td>
+						 <td><a href="{% url mybank_delete form.instance.id  %}">Delete</a></td>
+						
+	</li>
+                    {% endfor %}
+</ul>
 {% else %}
 
 <p>You now have 0  bank accounts. Create new accounts below </p>
 
 {% endif %}
+
+<p> Edit current accounts or create new accounts </p>
+
 <div>
     <div class="entry">
         <form method="post" action="">{% csrf_token %}
@@ -64,11 +80,7 @@
                         <td>{{ form.accountlastname }}</td>
 						<td>{{ form.accountnum }}</td>
 						<td>{{ form.routingnum }}</td>
-						{% if formset.initial_form_count > 0  %}
-						 	{% if not formset.errors %}
-						 <td><a href="{% url mybank_delete form.initial.id  %}">Delete</a></td>
-						{% endif %}
-						{% endif %}
+					
                     </tr>
                     {% endfor %}
                 </tbody>
