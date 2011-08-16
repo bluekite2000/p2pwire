@@ -369,12 +369,13 @@ def display_mydata(request, data, **kwargs):
 	url = '/%s/mybank/add' % request.user.username
 	return HttpResponseRedirect(url)
 
-def my_formset(request, username, formset_class, template):
+def my_formset(request, username, formset_class):
 
+    my_bank=MyBankAccount.objects.filter(createdby=request.user)
+	
     if request.method == 'POST':
 
         formset = MyBankAccountFormset(request.POST, user=request.user)
-
         if formset.is_valid():
             for form in formset:
 
@@ -383,10 +384,13 @@ def my_formset(request, username, formset_class, template):
             return display_mydata(request, data)
     else:
 
-        my_bank=MyBankAccount.objects.filter(createdby=request.user)
         formset = MyBankAccountFormset(queryset=my_bank, user=request.user)
-    return render_to_response(template, {'formset': formset},
-        context_instance=RequestContext(request))
+    return object_list(request,
+	                  queryset=my_bank,
+	                  template_name="main/mybankaccount_new.html",
+	                  extra_context={'formset':formset},
+	                  paginate_by=200,
+	                  page=request.GET.get('page',1))
 @login_required
 def mybank_delete(request,objectid):
 	url = '/%s/mybank/delete/%s' % ( request.user.username, objectid)
@@ -406,7 +410,8 @@ class BankAccountDeleteView(DeleteView):
 @login_required
 def mybank_deleted(request, username, public_profile_field=None,template_name='main/mybankaccount_deleted.html',
 								extra_context=None):
-	return render(request, template_name)			
+	url = '/%s/mybank/add' % request.user.username
+	return HttpResponseRedirect(url)
 
 
 
@@ -427,8 +432,9 @@ def display_data(request, data, **kwargs):
 	url = '/%s/recipient/add' % request.user.username
 	return HttpResponseRedirect(url)
 
-def formset(request, username, formset_class, template):
-
+def formset(request, username, formset_class):
+    recipient_bank=RecipientBankAccount.objects.filter(createdby=request.user)
+	
     if request.method == 'POST':
 
         formset = RecipientBankAccountFormset(request.POST, user=request.user)
@@ -440,10 +446,13 @@ def formset(request, username, formset_class, template):
             return display_data(request, data)
     else:
 
-        recipient_bank=RecipientBankAccount.objects.filter(createdby=request.user)
         formset = RecipientBankAccountFormset(queryset=recipient_bank, user=request.user)
-    return render_to_response(template, {'formset': formset},
-        context_instance=RequestContext(request))
+    return object_list(request,
+	                  queryset=recipient_bank,
+	                  template_name="main/recipientbankaccount_new.html",
+	                  extra_context={'formset':formset},
+	                  paginate_by=200,
+	                  page=request.GET.get('page',1))
 
 @login_required
 def recipientbank_delete(request,objectid):
@@ -464,5 +473,7 @@ class RecipientBankAccountDeleteView(DeleteView):
 @login_required
 def recipientbank_deleted(request, username, public_profile_field=None,template_name='main/recipientbankaccount_deleted.html',
 										extra_context=None):
-	return render(request, template_name)
+	#return render(request, template_name)
+	url = '/%s/recipient/add' % request.user.username
+	return HttpResponseRedirect(url)
 	

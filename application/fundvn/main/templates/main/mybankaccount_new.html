@@ -1,4 +1,4 @@
-{% extends "main/profile_base.html" %}
+{% extends "main/base.html" %}
 {% block script %}
 
 <script type="text/javascript">
@@ -26,38 +26,38 @@
 {% block main %}
  <div class="tab_container"> 
         <div id="tab2" class="tab_content"> 
-{% if formset.initial_form_count > 0 %}
-<p>You now have {{formset.initial_form_count}} account(s): </p>
-<ul>
 
-      {% for form in formset %}
+
+{% if  object_list.count > 0 %}
+<p>You now have {{object_list.count}} account(s): </p>
+
+
+<ul>
+{% for object in  object_list.all %}
 <li>
-  			<td >{{ form.instance.bank}}</td>
-                        <td>{{ form.instance.accountfirstname }}</td>
-                        <td>{{ form.instance.accountlastname }}</td>
-						<td>{{ form.instance.accountnum }}</td>
-						<td>{{ form.instance.routingnum }}</td>
-						<td>{{ form.instance.email }}</td>
-						 <td><a href="{% url mybank_delete form.instance.id  %}">Delete</a></td>
-						
+<td>  {{ object }}</td>
+<td><a href="{% url mybank_delete object.id  %}">Delete</a></td>
 	</li>
-                    {% endfor %}
+{% endfor %}
 </ul>
+
+
+
 {% else %}
 
-<p>You now have 0  bank accounts. Create new accounts below </p>
+<p>You now have 0  bank account. Add new accounts below </p>
 
 {% endif %}
 
-<p> Edit current accounts or create new accounts </p>
+<p> Edit current accounts or add new accounts </p>
 
 <div>
     <div class="entry">
         <form method="post" action="">{% csrf_token %}
 	     <p>
                 {{ formset.management_form }}
-				{{ formset.non_form_errors }}
-				
+			{{ formset.non_form_errors }}
+
             <table id="id_contact_info_table" border="0" cellpadding="0" cellspacing="5">
                 <thead>
                     <tr>
@@ -80,7 +80,7 @@
                         <td>{{ form.accountlastname }}</td>
 						<td>{{ form.accountnum }}</td>
 						<td>{{ form.routingnum }}</td>
-					
+						
                     </tr>
                     {% endfor %}
                 </tbody>

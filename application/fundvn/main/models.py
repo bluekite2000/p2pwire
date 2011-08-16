@@ -33,7 +33,7 @@ class MyBankAccount(models.Model):
 	routingnum=models.IntegerField()	
 	createdby=models.ForeignKey(User,null=True, related_name="creator_of_sender_account")
 	def __unicode__(self):
-		return u'%s %s %s' % (self.bank, self.accountfirstname, self.accountlastname)
+		return u'%s %s %s %s' % (self.bank, self.accountfirstname, self.accountlastname, self.accountnum)
 class RecipientBankAccount(models.Model):
 
 	bank=models.ForeignKey(Bank)
@@ -45,7 +45,7 @@ class RecipientBankAccount(models.Model):
 
 	createdby=models.ForeignKey(User,null=True, related_name="creator_of_recipient_account")
 	def __unicode__(self):
-		return  u'%s  %s %s' % (self.bank,self.accountfirstname, self.accountlastname)
+		return  u'%s  %s %s %s' % (self.bank,self.accountfirstname, self.accountlastname, self.accountnum)
 		
 TRANSACTION_STATUS = (
     ('N','Pending'),
