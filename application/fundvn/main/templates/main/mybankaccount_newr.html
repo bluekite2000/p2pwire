@@ -6,13 +6,6 @@
         $('#id_contact_info_table tbody tr').formset()
     })
 </script>
-
-
-
-
-
-
-</script>
 <!-- Here's an example of how you can style add/delete buttons with CSS -->
 <style type="text/css">
     .add-row {
@@ -34,6 +27,7 @@
  <div class="tab_container"> 
         <div id="tab2" class="tab_content"> 
 
+<p>You can't do a swap without a bank account. Create one then try to swap again. </p>
 
 {% if  object_list.count > 0 %}
 <p>You now have {{object_list.count}} account(s): </p>
@@ -43,7 +37,7 @@
 {% for object in  object_list.all %}
 <li>
 <td>  {{ object }}</td>
-<td><a href="{% url recipientbank_delete object.id  %}">Delete</a></td>
+<td><a href="{% url mybank_delete object.id  %}">Delete</a></td>
 	</li>
 {% endfor %}
 </ul>
@@ -52,7 +46,7 @@
 
 {% else %}
 
-<p>You now have 0 recipient bank accounts. Add new accounts below </p>
+<p>You now have 0  bank account. Add new accounts below </p>
 
 {% endif %}
 
@@ -74,15 +68,14 @@
 
                         <th scope="col">Routing number</th>
 
-                        <th scope="col">Email</th>
 
                     </tr>
                 </thead>
                 <tbody>
-	
-	 {% for dict in formset.errors %}
+{% for dict in formset.errors %}
   {{dict}}
 {% endfor %}
+
                     {% for form in formset.forms %}
 
 						{{ form.id }}
@@ -92,14 +85,13 @@
                         <td>{{ form.accountlastname }}</td>
 						<td>{{ form.accountnum }}</td>
 						<td>{{ form.routingnum }}</td>
-						<td>{{ form.email }}</td>
 						
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
        
-                <input class="btn" type="submit" value="Submit" />
+                <input type="submit" value="Submit" />
             </p>
         </form>
     </div>

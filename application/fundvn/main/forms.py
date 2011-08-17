@@ -164,29 +164,20 @@ MyBankAccountFormset = modelformset_factory(MyBankAccount, form=MyBankAccountFor
 #RECIPIENT BANK ACCOUNT FORM		
 class RecipientBankAccountFormSet(BaseModelFormSet): 
   def __init__(self, *args, **kwargs): 
-    #import pdb
-    #pdb.set_trace()
-    #self.queryset = kwargs.pop('queryset', [])
+  
     self.user = kwargs.pop('user') 
     super(RecipientBankAccountFormSet, self).__init__(*args, **kwargs) 
     self.queryset = kwargs.pop('queryset', [])
   def _construct_form(self, i, **kwargs): 
     kwargs['user'] = self.user 
-    """
-    if self.queryset:
-        #try:
-            kwargs['queryset'] = self.queryset[i]
-        except IndexError:
-            pass
-    """    
+   
     return super(RecipientBankAccountFormSet, self)._construct_form(i, **kwargs) 
 
 
 
 class RecipientBankAccountForm(ModelForm): 
   def __init__(self, *args, **kwargs): 
-    #import pdb
-    #pdb.set_trace()
+  
     self.createdby = kwargs.pop('user') 
     super(RecipientBankAccountForm, self).__init__(*args, **kwargs) 
 

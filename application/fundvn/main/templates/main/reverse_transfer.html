@@ -14,7 +14,14 @@
 
 
 {% block main %}
-You have requested a swap for {{ id }}. Please enter your reverse transfer below:
+You have requested a swap for 
+<ul>
+<li>
+{{ id.sender.accountfirstname }},  {{ id.sender.bank.bankcity}}, {{ id.sender.bank.bankcountry}} requests to transfer  {{ id.amount }} to {{ id.receiver.accountfirstname }}, {{id.receiver.bank.bankcity}}, {{ id.receiver.bank.bankcountry}} . 
+	</li>
+	
+	</ul>
+ Please enter your reverse transfer below:
 <form method='POST'>{% csrf_token %}
  {{ form.as_p }} 
 <input type='submit' value='Send'> 

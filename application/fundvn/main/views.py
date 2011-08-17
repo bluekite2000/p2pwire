@@ -22,17 +22,19 @@ from django.views.generic.list_detail import object_list
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.utils import simplejson
+#from django.utils import json
+
 from django.core import serializers
 
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-
+from django.db import IntegrityError
 #static pages
 def about(request):
     return render(request, 'main/about.html')
-def press(request):
-	return render(request, 'main/press.html')
+def how(request):
+	return render(request, 'main/how.html')
 def blog(request):
 	return render(request, 'main/blog.html')
 def contact_form(request):
@@ -64,15 +66,19 @@ def contact_form(request):
 
 #TRANSACTION
 @login_required
+
 def main_home(request):
 	url='/%s/alltrans'% request.user.username  
 	return HttpResponseRedirect(url)
+@login_required
+
 def ajax_sender_city_search(request):
 
 	cityname=City.objects.filter(countryname=request.GET['country_id'])
 	data = serializers.serialize("json", cityname)
 
 	return HttpResponse(data, mimetype='application/javascript')	
+@login_required
 
 def ajax_sender_country_search(request):
 
@@ -80,6 +86,7 @@ def ajax_sender_country_search(request):
 	data = serializers.serialize("json", opposite_countryname)
 
 	return HttpResponse(data, mimetype='application/javascript')	
+@login_required
 	
 	
 def ajax_receiver_city_search(request):
@@ -89,6 +96,7 @@ def ajax_receiver_city_search(request):
 
 	return HttpResponse(data, mimetype='application/javascript')
 @login_required
+
 def searchpage(request, username,form_class=SearchForm):
 	queryset=Transaction.objects.all().order_by('-created')
 	search_form=SearchForm(request.REQUEST)
@@ -139,6 +147,7 @@ def searchpage(request, username,form_class=SearchForm):
 	                  paginate_by=200,
 	                  page=request.GET.get('page',1))
 	
+@login_required
 	
 def user_public_past_trans(request,createdby):
 	sender=User.objects.filter(username=createdby)
@@ -249,19 +258,22 @@ def reverse_trans_accept(request, username, id,public_profile_field=None,templat
 @login_required
 def reverse_transfer(request,id):
 	
-	sender=User.objects.filter(username=request.user.username)
-	
-	if ReverseTransaction.objects.filter(org_tran__id=id, createdby=sender):
+	sender=User.objects.get(username=request.user.username)
+	tran=Transaction.objects.get(id=id)
+
+	if ReverseTransaction.objects.filter(org_tran__id=id, createdby=sender):#if user is duplicating a swap
 		return render(request, 'main/reverse_transaction_fail.html')
-
-
-	elif Transaction.objects.filter(createdby=sender):
+	elif tran.createdby == sender:#if user is swapping with himself
 		return render(request, 'main/reverse_transaction_fail1.html')
 	else:
-		if  MyBankAccount.objects.filter(createdby=request.user).exists():                                                                                                                  
-			url_address = '/%s/reverse_trans/%s/create' % (request.user.username,id)
+		if  MyBankAccount.objects.filter(createdby=request.user).exists()==False:   
+			url_address = '/%s/mybank/addr' % request.user.username                                                                                                                
+			
+		elif RecipientBankAccount.objects.filter(createdby=request.user).exists()==False:
+			url_address = '/%s/recipient/addr' % request.user.username
 		else:
-			url_address = '/%s/mybank/add' % request.user.username  
+			url_address = '/%s/reverse_trans/%s/create' % (request.user.username,id)
+			 
 		return HttpResponseRedirect(url_address)		
 
 		
@@ -391,6 +403,31 @@ def my_formset(request, username, formset_class):
 	                  extra_context={'formset':formset},
 	                  paginate_by=200,
 	                  page=request.GET.get('page',1))
+	
+def my_formsetr(request, username, formset_class):
+
+    my_bank=MyBankAccount.objects.filter(createdby=request.user)
+	
+    if request.method == 'POST':
+
+        formset = MyBankAccountFormset(request.POST, user=request.user)
+        if formset.is_valid():
+            for form in formset:
+
+                    form.save()    
+            data = formset.cleaned_data
+            return display_mydata(request, data)
+    else:
+
+        formset = MyBankAccountFormset(queryset=my_bank, user=request.user)
+    return object_list(request,
+	                  queryset=my_bank,
+	                  template_name="main/mybankaccount_newr.html",
+	                  extra_context={'formset':formset},
+	                  paginate_by=200,
+	                  page=request.GET.get('page',1))
+	
+	
 @login_required
 def mybank_delete(request,objectid):
 	url = '/%s/mybank/delete/%s' % ( request.user.username, objectid)
@@ -440,8 +477,11 @@ def formset(request, username, formset_class):
         formset = RecipientBankAccountFormset(request.POST, user=request.user)
         if formset.is_valid():
             for form in formset:
-
-                    form.save()    
+                    try: 
+                        form.save()
+                    except IntegrityError, e: 
+                        #json = simplejson.dumps('hello world!')
+                        return HttpResponse('Another user already created this account num!')
             data = formset.cleaned_data
             return display_data(request, data)
     else:
@@ -454,6 +494,33 @@ def formset(request, username, formset_class):
 	                  paginate_by=200,
 	                  page=request.GET.get('page',1))
 
+def formsetr(request, username, formset_class):
+    recipient_bank=RecipientBankAccount.objects.filter(createdby=request.user)
+	
+    if request.method == 'POST':
+
+        formset = RecipientBankAccountFormset(request.POST, user=request.user)
+        if formset.is_valid():
+            for form in formset:
+                    try: 
+                        form.save()
+                    except IntegrityError, e: 
+                        #json = simplejson.dumps('hello world!')
+                        return HttpResponse('Another user already created this account num!')
+            data = formset.cleaned_data
+            return display_data(request, data)
+    else:
+
+        formset = RecipientBankAccountFormset(queryset=recipient_bank, user=request.user)
+    return object_list(request,
+	                  queryset=recipient_bank,
+	                  template_name="main/recipientbankaccount_newr.html",
+	                  extra_context={'formset':formset},
+	                  paginate_by=200,
+	                  page=request.GET.get('page',1))
+	
+	
+	
 @login_required
 def recipientbank_delete(request,objectid):
 	url = '/%s/recipientbank/delete/%s' % ( request.user.username, objectid)

@@ -79,4 +79,11 @@ class ReverseTransaction(models.Model):
 	org_tran=models.ForeignKey(Transaction, null=True)
 	def __unicode__(self):
 		return  u'%s %s %s %s %s' % (self.sender, self.receiver,self.created, self.amount,self.createdby)
+	def get_absolute_url(self):
+		from django.core.urlresolvers import reverse
+	
+		return reverse('user_public_past_trans', kwargs={ 'createdby': self.createdby})
+	def get_swap_absolute_url(self):
+		from django.core.urlresolvers import reverse
 
+		return reverse('reverse_transfer', kwargs={ 'id': self.id})

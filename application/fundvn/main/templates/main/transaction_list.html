@@ -3,8 +3,18 @@
 {% block main %}
  <div class="tab_container"> 
         <div id="tab1" class="tab_content"> 
+Recent transactions:<br>
+<ul>
 
-Recent transactions<br>
+{% if  object_list.count == 0 %}
+<li>
+
+<p>You have 0 transaction </p>
+</li>
+{% else  %}
+
+<p>You have {{object_list.count}} transactions(s): </p>
+
 <ol>
 {% for object in  object_list.all %}
 	{% ifequal object.status "N" %}
@@ -20,7 +30,7 @@ Recent transactions<br>
 
 				{% for reverse_request in  object.reversetransaction_set.all %}
 
-					<li>{{reverse_request.sender.accountfirstname }}, {{ reverse_request.sender.bank.bankcountry}} who requests to transfer {{reverse_request.amount}} to {{reverse_request.receiver.accountfirstname }}, {{ reverse_request.receiver.bank.bankcountry}} <a href="{% url rtrans_accept reverse_request.id %}"> Accept</a> </li>
+					<li><a href="{{ reverse_request.get_absolute_url }}">{{reverse_request.sender.accountfirstname }}</a>, {{ reverse_request.sender.bank.bankcountry}} who requests to transfer {{reverse_request.amount}} to {{reverse_request.receiver.accountfirstname }}, {{ reverse_request.receiver.bank.bankcountry}} <a href="{% url rtrans_accept reverse_request.id %}"> Accept</a> </li>
 				
 					{% endfor %}
 
@@ -50,6 +60,7 @@ Recent transactions<br>
 {% endfor %}
 </ol>
 
+{% endif %}
 
 <br>
 </div>	

@@ -16,7 +16,7 @@ urlpatterns = patterns('main.views',
     url(r'^$', 'contact_form', name="contact_form"),
     url(r'^thanks/$', direct_to_template, {'template': 'thanks.html'},name="thanks"),
 	url(r'^about/$',about,name='about'),
-	url(r'^press/$',press,name='press'),
+	url(r'^how/$',how,name='how'),
 	url(r'^blog/$',blog,name='blog'),
 	
 	url(r'^main/$',main_home,name='main_home'),
@@ -57,7 +57,7 @@ urlpatterns = patterns('main.views',
 						
 		url(r'^mybank_add/$',mybank_add,name='mybank_add'),
 	url(r'^(?P<username>\w+)/mybank/add/$','my_formset', {'formset_class': MyBankAccountFormset}, name='mybank_new'),
-						
+	url(r'^(?P<username>\w+)/mybank/addr/$','my_formsetr', {'formset_class': MyBankAccountFormset}, name='mybank_newr'),					
 	#PROFILE-bank-delete an existing bank account
 	url(r'^mybank/delete/(\d+)/$', mybank_delete, name="mybank_delete"),
 	url(r'^(?P<username>\w+)/mybank/delete/(?P<pk>\d+)/$', BankAccountDeleteView.as_view(model=MyBankAccount)),
@@ -66,9 +66,10 @@ urlpatterns = patterns('main.views',
 												
 	#RECIPIENT-add new recipient
 	url(r'^recipient_add/$',recipient_add,name='recipient_add'),
-	
+
 	
 	url(r'^(?P<username>\w+)/recipient/add/$','formset', {'formset_class': RecipientBankAccountFormset}, name='recipient_new'),
+	url(r'^(?P<username>\w+)/recipient/addr/$','formsetr', {'formset_class': RecipientBankAccountFormset}, name='recipient_newr'),
 
 	url(r'^recipientbank/delete/(\d+)/$', recipientbank_delete, name="recipientbank_delete"),
 	url(r'^(?P<username>\w+)/recipientbank/delete/(?P<pk>\d+)/$', RecipientBankAccountDeleteView.as_view(model=RecipientBankAccount)),
