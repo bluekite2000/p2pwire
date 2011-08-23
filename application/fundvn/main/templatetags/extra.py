@@ -33,3 +33,5 @@ def filter_by_sender(queryset, user):
 def filter_by_creator(queryset, user):
 	"""Filter the queryset by (currently logged in) user"""
 	return queryset.filter(createdby=user)
+	
+	

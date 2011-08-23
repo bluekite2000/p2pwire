@@ -6,12 +6,12 @@
 
 
 {% block content_title %}
-  <h2>Wrong user name or password. Please retry</h2>
+  <h2>Log in here</h2>
 {% endblock %}
 
 
 {% block content %}
-  <form action="." method="post" class="login_form">{% csrf_token %}
+  <form action="/main/" method="post" class="login_form">{% csrf_token %}
     {{ form.as_p }}
     <p class="submit"><button type="submit" name="submit" value="Login">Log in</button></p>
     {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}

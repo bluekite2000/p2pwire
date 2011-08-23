@@ -30,6 +30,8 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.db import IntegrityError
+
+
 #static pages
 def about(request):
     return render(request, 'main/about.html')
@@ -138,12 +140,14 @@ def searchpage(request, username,form_class=SearchForm):
 			queryset=queryset.filter(amount__gte=search_variable5)
 		if search_variable6:
 			queryset=queryset.filter(amount__lte=search_variable6)
-	
+	#import pdb
+	#pdb.set_trace()
 	
 	return object_list(request,
 	                  queryset=queryset,
 	                  template_name="main/alltrans.html",
 	                  extra_context={'search_form':search_form},
+	
 	                  paginate_by=200,
 	                  page=request.GET.get('page',1))
 	
@@ -461,6 +465,8 @@ def recipient_manage(request):
 	
 @login_required
 def recipient_add(request):
+	#import pdb
+	#pdb.set_trace()
 	url = '/%s/recipient/add' % request.user.username
 	return HttpResponseRedirect(url)
 

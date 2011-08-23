@@ -26,7 +26,6 @@ MEDIA_ROOT = os.path.join(ROOT_PATH, 'media')
 #IMAGE_ROOT = os.path.join(ROOT_PATH, 'image/')
 #MEDIA_ROOT='media'
 ## Changed
-##MEDIA_URL = 'http:/fundvn.com/media/'
 MEDIA_URL = '/media'
 
 ## Changed but irrelevant
@@ -41,12 +40,19 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.load_template_source',
 #     'django.template.loaders.eggs.load_template_source',
 )
-
+TEMPLATE_CONTEXT_PROCESSORS = (
+  "django.core.context_processors.request",
+ "django.core.context_processors.auth",
+  "django.core.context_processors.debug",
+'django.core.context_processors.media',
+ 'django.core.context_processors.static',
+)
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
+	    'main.middleware.LoginFormMiddleware',
 )
 
 ROOT_URLCONF = 'fundvn.urls'
@@ -69,16 +75,18 @@ INSTALLED_APPS = (
 	'registration',
 	'profiles',
 	'smart_selects',
+	 'template_repl',
 )
 AUTH_BANKPROFILE_MODULE = "main.mybankaccount"
 
 AUTH_PROFILE_MODULE = "profiles.userprofile"
-LOGIN_REDIRECT_URL = '/main/'
+LOGIN_REDIRECT_URL = '/salfjs/'
 LOGIN_URL = '/account/login'
 #LOGIN_REDIRECT_URL = '/profiles/%s/' % user.username
 ACCOUNT_ACTIVATION_DAYS=7
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'nguyenhdat@gmail.com'
-EMAIL_HOST_PASSWORD = 'trang8Dat'
+EMAIL_HOST_PASSWORD = 'dat8Trang'
 EMAIL_PORT = 587
+INTERNAL_IPS = ('127.0.0.1',)
