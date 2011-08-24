@@ -19,8 +19,7 @@
 
 	
 <form method='POST'>{% csrf_token %}
- {{ form|bootstrap}}
-<input class="btn"  type='submit' value='Send'> 
+ {{ form|bootstrap_form}}
 </form>
 </section>
 {% endblock main %}

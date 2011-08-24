@@ -1,0 +1,17 @@
+{% load bootstrap %}
+
+<form>
+	<fieldset>	
+
+		{% for field in form %}
+	
+			<div class="clearfix">
+				<label for>  {{ field.label_tag }}</label>
+       			<div class="input"> {{ field }}</div>			
+         	</div>       
+        {% endfor %}
+
+	</fieldset>
+	<input class="btn"  type='submit' value='Send'> 
+
+</form>

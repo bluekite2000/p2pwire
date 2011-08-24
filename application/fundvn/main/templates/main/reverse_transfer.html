@@ -23,8 +23,7 @@ You have requested a swap for
 	</ul>
  Please enter your reverse transfer below:
 <form method='POST'>{% csrf_token %}
- {{ form|bootstrap}}
-<input class="btn"  type='submit' value='Send'> 
+ {{ form|bootstrap_form}}
 </form>
 
 {% endblock main %}
