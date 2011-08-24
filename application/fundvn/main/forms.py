@@ -19,8 +19,8 @@ class SearchForm(forms.Form):
 	sender_city=forms.ModelChoiceField(queryset=City.objects.all(), required=False)
 	receiver_country=forms.ModelChoiceField(queryset=Country.objects.all(), required=False)
 	receiver_city=forms.ModelChoiceField(queryset=City.objects.all(), required=False)
-	min_amount=forms.FloatField(required=False,label='with amount from')
-	max_amount=forms.FloatField(required=False,label='to')
+	min_amount=forms.FloatField(required=False,label='min amount')
+	max_amount=forms.FloatField(required=False,label='max amount')
 	def __init__(self, *args, **kwargs):
 		#import pdb
 		#pdb.set_trace()

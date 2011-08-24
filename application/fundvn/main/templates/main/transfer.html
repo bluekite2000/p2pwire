@@ -12,14 +12,15 @@
 
 {% endblock script %}
 
+{% load bootstrap %}
+
 {% block main %}
- <div class="tab_container"> 
-        <div id="tab1" class="tab_content"> 
+<section id="forms">
+
 	
 <form method='POST'>{% csrf_token %}
- {{ form.as_p }} 
-<input type='submit' value='Send'> 
+ {{ form|bootstrap}}
+<input class="btn"  type='submit' value='Send'> 
 </form>
-</div>	
-</div>
+</section>
 {% endblock main %}

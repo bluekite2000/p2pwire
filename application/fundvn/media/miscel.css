@@ -1,0 +1,31 @@
+
+
+
+#id_sender_country {
+    width: 100px;
+}
+
+
+#id_receiver_country {
+    width: 100px;
+}
+
+#id_sender_city {
+    width: 100px;
+}
+
+#id_receiver_city {
+    width: 100px;
+}
+#id_min_amount {
+    width: 50px;
+}
+#id_max_amount {
+    width: 50px;
+}
+
+#formnavcontainer ul {margin: 0; padding: 0; 
+	list-style-type: none; list-style-image: none; }
+	
+
+#formnavcontainer li {display: inline; }

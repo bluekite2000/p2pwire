@@ -31,8 +31,6 @@
 </style>
 {% endblock %}
 {% block main %}
- <div class="tab_container"> 
-        <div id="tab2" class="tab_content"> 
 
 
 {% if  object_list.count > 0 %}
@@ -64,7 +62,7 @@
 	     <p>
                 {{ formset.management_form }}
 
-            <table id="id_contact_info_table" border="0" cellpadding="0" cellspacing="5">
+           <table   class="common-table" id="id_contact_info_table">
                 <thead>
                     <tr>
                         <th scope="col">Bank</th>
@@ -105,6 +103,5 @@
     </div>
 </div>
 
-</div>
 </div>
 {% endblock main %}

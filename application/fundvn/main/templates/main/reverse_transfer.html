@@ -11,7 +11,7 @@
 
 {% endblock script %}
 
-
+{% load bootstrap %}
 
 {% block main %}
 You have requested a swap for 
@@ -23,8 +23,8 @@ You have requested a swap for
 	</ul>
  Please enter your reverse transfer below:
 <form method='POST'>{% csrf_token %}
- {{ form.as_p }} 
-<input type='submit' value='Send'> 
+ {{ form|bootstrap}}
+<input class="btn"  type='submit' value='Send'> 
 </form>
 
 {% endblock main %}

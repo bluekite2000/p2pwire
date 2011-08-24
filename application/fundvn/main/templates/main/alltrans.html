@@ -58,17 +58,21 @@ $(function(){
 
 {% endblock script %}
 
+
+{% load bootstrap %}
+{% load uni_form_tags %}
+
+
+<section id="table">	
+
 {% block main %}
 
 
 
- <div class="tab_container"> 
-        <div id="tab2" class="tab_content"> 
-	
 	
 <form method="get"  action="">
-	{{search_form}}
-	<input type="submit" value="Search" />
+	{{search_form|bootstrap}}
+<input  class="btn" type="submit" value="Search" />
 </form>
 <br>
 
@@ -101,6 +105,6 @@ Recent transactions<br>
 {% endfor %}
 </ul>
 <br>
-</div>
-</div>
-{% endblock %}
+	{% endblock %}
+	
+</section>
