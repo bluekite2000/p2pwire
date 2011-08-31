@@ -16,6 +16,13 @@ def bootstrap_form(form):
     template = get_template("bootstrap/form.html")
     context = Context({'form': form})
     return template.render(context)
+
+@register.filter
+def bootstrap_signin_form(form):
+    template = get_template("bootstrap/signin_form.html")
+    context = Context({'form': form})
+    return template.render(context)
+
 @register.filter
 def is_checkbox(field):
     return field.field.widget.__class__.__name__.lower() == "checkboxinput"
