@@ -9,13 +9,18 @@
 <!--  <h2>Wrong user name or password. Please retry</h2>
 
 -->
-Login here{% endblock %}
 
+{% endblock %}
 
 {% block content %}
+					<div class="container">
+<br>
+Login here
   <form action="." method="post" class="login_form">{% csrf_token %}
     {{ form.as_p }}
-    <p class="submit"><button type="submit" name="submit" value="Login">Log in</button></p>
+    <p class="btn"  name="submit" value="Login">Log in</button></p>
     {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
   </form>
+
+</div>
 {% endblock %}
