@@ -80,7 +80,7 @@ INSTALLED_APPS = (
 AUTH_BANKPROFILE_MODULE = "main.mybankaccount"
 
 AUTH_PROFILE_MODULE = "profiles.userprofile"
-LOGIN_REDIRECT_URL = '/main/'
+LOGIN_REDIRECT_URL = '/transfer/'
 LOGIN_URL = '/account/login'
 #LOGIN_REDIRECT_URL = '/profiles/%s/' % user.username
 ACCOUNT_ACTIVATION_DAYS=7
