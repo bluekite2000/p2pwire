@@ -1,8 +1,8 @@
 import os
 import sys
 
-sys.path.append('/srv/www/fundvn.com/application/fundvn')
-sys.path.append('/srv/www/fundvn.com/application/')
+sys.path.append('/srv/www/p2pwire.com/application/fundvn')
+sys.path.append('/srv/www/p2pwire.com/application/')
 
 os.environ['PYTHON_EGG_CACHE'] = '/srv/www/fundvn/.python-egg'
 
